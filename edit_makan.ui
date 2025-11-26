@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="btn_menu2">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>571</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>100</horstretch>
+      <verstretch>100</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #0078D4;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+	font-size: 10px;
+}
+
+QPushButton:hover {
+    background-color: #005fa3;
+}
+
+QPushButton:pressed {
+    background-color: #003f6b;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Selamat Datang Restoran Kami</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_menu2_3">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>571</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>100</horstretch>
+      <verstretch>100</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #0078D4;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+	font-size: 10px;
+}
+
+QPushButton:hover {
+    background-color: #005fa3;
+}
+
+QPushButton:pressed {
+    background-color: #003f6b;
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>100</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>MAKAN</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>220</y>
+      <width>230</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="btn_save">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #005fa3;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+	font-size: 10px;
+}
+
+QPushButton:hover {
+    background-color: #005fa3;
+}
+
+QPushButton:pressed {
+    background-color: #003f6b;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Update</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_back">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #005fa3;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+	font-size: 10px;
+}
+
+QPushButton:hover {
+    background-color: #005fa3;
+}
+
+QPushButton:pressed {
+    background-color: #003f6b;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Back</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>140</y>
+      <width>211</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <layout class="QFormLayout" name="formLayout_2">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="styleSheet">
+        <string notr="true">QLabel {font-size:10px; color:black;}</string>
+       </property>
+       <property name="text">
+        <string>ID</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLineEdit" name="lineEdit_id_2">
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px;
+	color: black;
+}
+
+QLineEdit:focus {
+    border: 1px solid #0078D4;
+}</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_search_2">
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #0078D4;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+	font-size: 10px;
+}
+
+QPushButton:hover {
+    background-color: #005fa3;
+}
+
+QPushButton:pressed {
+    background-color: #003f6b;
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Cari</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_7">
+       <property name="styleSheet">
+        <string notr="true">QLabel {font-size:10px; color:black;}</string>
+       </property>
+       <property name="text">
+        <string>Makan</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="lineEdit_nama_2">
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px;
+	color: black;
+}
+
+QLineEdit:focus {
+    border: 1px solid #0078D4;
+}</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_8">
+       <property name="styleSheet">
+        <string notr="true">QLabel {font-size:10px; color:black;}</string>
+       </property>
+       <property name="text">
+        <string>Harga</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="lineEdit_harga_2">
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px;
+	color: black;
+}
+
+QLineEdit:focus {
+    border: 1px solid #0078D4;
+}</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>140</y>
+      <width>241</width>
+      <height>66</height>
+     </rect>
+    </property>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="styleSheet">
+        <string notr="true">QLabel {font-size:10px; color:black;}</string>
+       </property>
+       <property name="text">
+        <string>Stok</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">QLabel {font-size:10px; color:black;}</string>
+       </property>
+       <property name="text">
+        <string>Kategori</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QComboBox" name="comboBox_kategori">
+       <property name="styleSheet">
+        <string notr="true">QComboBox {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px;
+	color: black;
+}
+
+QComboBox QListView {
+    color: black;              
+    background: white;        
+}
+
+QComboBox:focus {
+    border: 1px solid #0078D4;
+}</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>dessert</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineEdit_stok">
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px;
+	color: black;
+}
+
+QLineEdit:focus {
+    border: 1px solid #0078D4;
+}</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>18</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
