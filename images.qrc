@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>images/logo pbo.png</file>
+        <file>images/logo-rounded.png</file>
+        <file>images/mage--clipboard-2-fill.png</file>
+        <file>images/mage--home-fill.png</file>
+        <file>images/mage--shut-down-fill.png</file>
+        <file>images/mage--users-fill.png</file>
+        <file>images/mage--filter-fill.png</file>
+        <file>images/mage--clipboard-2-fill-off.png</file>
+        <file>images/mage--dash-menu.png</file>
+        <file>images/mage--double-arrow-left.png</file>
+        <file>images/mage--home-fill-off.png</file>
+        <file>images/mage--shut-down-fill-off.png</file>
+        <file>images/mage--users-fill-off.png</file>
+        <file>images/mage--dash-menu-off.png</file>
+        <file>images/mage--double-arrow-left-off.png</file>
+        <file>images/mage--plus.png</file>
+    </qresource>
+</RCC>
