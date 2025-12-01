@@ -491,6 +491,9 @@ class Ui_MainWindow(object):
         self.comboBox_6.setMinimumSize(QtCore.QSize(300, 30))
         self.comboBox_6.setMaximumSize(QtCore.QSize(1000, 30))
         self.comboBox_6.setObjectName("comboBox_6")
+        self.comboBox_6.addItem("")
+        self.comboBox_6.addItem("")
+        self.comboBox_6.addItem("")
         self.horizontalLayout_21.addWidget(self.comboBox_6)
         self.verticalLayout_6.addWidget(self.frame_makanan_2)
         self.frame_minuman_2 = QtWidgets.QFrame(self.widget_2)
@@ -509,6 +512,9 @@ class Ui_MainWindow(object):
         self.comboBox_5.setMinimumSize(QtCore.QSize(300, 30))
         self.comboBox_5.setMaximumSize(QtCore.QSize(1000, 30))
         self.comboBox_5.setObjectName("comboBox_5")
+        self.comboBox_5.addItem("")
+        self.comboBox_5.addItem("")
+        self.comboBox_5.addItem("")
         self.horizontalLayout_19.addWidget(self.comboBox_5)
         self.verticalLayout_6.addWidget(self.frame_minuman_2)
         spacerItem10 = QtWidgets.QSpacerItem(20, 35, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
@@ -557,6 +563,8 @@ class Ui_MainWindow(object):
         self.btn_logout_icon.clicked.connect(MainWindow.close) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -575,9 +583,17 @@ class Ui_MainWindow(object):
         self.comboBox_4.setItemText(0, _translate("MainWindow", "Makanan"))
         self.comboBox_4.setItemText(1, _translate("MainWindow", "Minuman"))
         self.label_20.setText(_translate("MainWindow", "Makanan"))
+        self.comboBox_6.setItemText(0, _translate("MainWindow", "---pilih jenis makanan---"))
+        self.comboBox_6.setItemText(1, _translate("MainWindow", "main menu"))
+        self.comboBox_6.setItemText(2, _translate("MainWindow", "dessert"))
         self.label_18.setText(_translate("MainWindow", "Minuman"))
+        self.comboBox_5.setItemText(0, _translate("MainWindow", "---pilih jenis penyajian---"))
+        self.comboBox_5.setItemText(1, _translate("MainWindow", "panas"))
+        self.comboBox_5.setItemText(2, _translate("MainWindow", "dingin"))
         self.pushButton_4.setText(_translate("MainWindow", "Kembali"))
-        self.btn_save_2.setText(_translate("MainWindow", "Simpan"))
+        self.btn_save_2.setText(_translate("MainWindow", "Update"))
+
+    
 import images_rc
 
 

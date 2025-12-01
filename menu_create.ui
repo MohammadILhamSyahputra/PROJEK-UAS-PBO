@@ -1015,6 +1015,21 @@ QComboBox {
                  <height>30</height>
                 </size>
                </property>
+               <item>
+                <property name="text">
+                 <string>--Pilih jenis makanan--</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>main menu</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>dessert</string>
+                </property>
+               </item>
               </widget>
              </item>
             </layout>
@@ -1078,6 +1093,21 @@ QComboBox {
                  <height>30</height>
                 </size>
                </property>
+               <item>
+                <property name="text">
+                 <string>--pilih jenis penyajian--</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>panas</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>dingin</string>
+                </property>
+               </item>
               </widget>
              </item>
             </layout>

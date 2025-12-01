@@ -15,7 +15,7 @@ class Minuman(Menu):
         super().__init__(id_menu, nama, harga, stok)
         self.jenis_penyajian = penyajian
 
-    def insert_data(self):
+    def insert_kategori(self):
         new_id = super()._insert_menu_data()
         
         if new_id:

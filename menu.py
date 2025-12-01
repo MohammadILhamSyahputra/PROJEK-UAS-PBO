@@ -40,12 +40,26 @@ class Menu:
         print(mycursor.rowcount, f"Data menu ID {self.id_menu} berhasil diupdate.")
 
     def delete_data(self):
-        sql = "DELETE FROM menu WHERE id = %s"
-        val = (self.id_menu,)
+        menu_id = self.id_menu
+        val = (menu_id,)
         
-        mycursor.execute(sql, val)
-        mydb.commit()
-        print(mycursor.rowcount, f"Data menu ID {self.id_menu} berhasil dihapus (CASCADE).")
+        try:
+            sql_makanan = "DELETE FROM makanan WHERE id = %s"
+            mycursor.execute(sql_makanan, val)
+
+            sql_minuman = "DELETE FROM minuman WHERE id = %s"
+            mycursor.execute(sql_minuman, val)
+
+            sql_menu = "DELETE FROM menu WHERE id = %s"
+            mycursor.execute(sql_menu, val)
+            
+            mydb.commit()
+            
+            print(f"Data menu ID {menu_id} berhasil dihapus dari semua tabel secara manual.")
+
+        except Exception as e:
+            mydb.rollback()
+            print(f"[Menu] Error DELETE: Gagal menghapus data ID {menu_id}: {e}")
 
     def select_all_data(self):
         from makanan import Makanan
@@ -69,4 +83,18 @@ class Menu:
                 menu_list.append(Minuman(id, nama, harga, stok, penyajian))
         return menu_list
     
+
+    def select_by_name(self):
+        sql = "SELECT id, nama FROM menu WHERE id = %s"
+        
+        try:
+            mycursor.execute(sql, (self.id_menu,))
+            row = mycursor.fetchone()
+            
+            if row:
+                return row 
+            return None
+        except Exception as e:
+            print(f"[Menu] Error SELECT basic data: {e}")
+            return None
 
