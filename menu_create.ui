@@ -1017,7 +1017,7 @@ QComboBox {
                </property>
                <item>
                 <property name="text">
-                 <string>--Pilih jenis makanan--</string>
+                 <string>--Pilih jenis kategori--</string>
                 </property>
                </item>
                <item>
