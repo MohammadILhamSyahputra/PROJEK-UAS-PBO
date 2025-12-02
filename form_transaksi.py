@@ -559,16 +559,11 @@ class Ui_MainWindow(object):
 
         self.pushButton.clicked.connect(self.search_menu)
         self.lineEdit_2.returnPressed.connect(self.search_menu)
-        
         self.tableWidget.itemSelectionChanged.connect(self.menu_selected_from_table)
-        
         self.pushButton_2.clicked.connect(self.tambah_item_transaksi)
-
         self.btn_save.clicked.connect(self.proses_pembayaran)
-        
         self.current_kode_transaksi = None
         self.selected_menu_id = None
-        
         self.tableWidget_2.setColumnCount(5)
         self.tableWidget_2.setHorizontalHeaderLabels(["ID Trans", "Kode", "Menu", "Qty", "Subtotal"])
 
