@@ -501,8 +501,10 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.addWidget(self.widget_2)
         self.gridLayout.addWidget(self.main_menu, 0, 2, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
-        self.loadTable()
+        self.btn_add_menu.clicked.connect(self.searchTable)
+        self.lineEdit.returnPressed.connect(self.searchTable)
 
+        self.loadTable()
         self.retranslateUi(MainWindow)
         self.btn_expand.toggled['bool'].connect(self.icon_only_widget.setHidden) # type: ignore
         self.btn_expand.toggled['bool'].connect(self.icon_name_widget.setVisible) # type: ignore
@@ -516,21 +518,45 @@ class Ui_MainWindow(object):
         self.btn_logout_icon.clicked.connect(MainWindow.close) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def loadTable(self):
-        user = User()
-        data = user.select_all()  
+    def loadTable(self, data=None):
+        if data is None:
+            user = User()
+            data = user.select_all() or []
 
-        self.tableWidget.setColumnCount(4)
-        self.tableWidget.setHorizontalHeaderLabels(["Username", "Nama", "Password", "Level"])
-
+        headers = ["Username", "Nama", "Password", "Level"]
+        self.tableWidget.setColumnCount(len(headers))
+        self.tableWidget.setHorizontalHeaderLabels(headers)
         self.tableWidget.setRowCount(0)
 
         for row_number, row_data in enumerate(data):
-                self.tableWidget.insertRow(row_number)
-        for column_number, cell_data in enumerate(row_data):
-                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(cell_data)))
+            self.tableWidget.insertRow(row_number)
+            for col, value in enumerate(row_data):
+                if value is None:
+                    value = ""
+                if isinstance(value, (bytes, bytearray)):
+                    value = value.decode("utf-8", errors="ignore")
 
-                self.tableWidget.resizeColumnsToContents()
+                self.tableWidget.setItem(
+                    row_number,
+                    col,
+                    QtWidgets.QTableWidgetItem(str(value))
+                )
+
+        self.tableWidget.resizeColumnsToContents()
+        self.tableWidget.horizontalHeader().setStretchLastSection(True)
+
+    def searchTable(self):
+        keyword = self.lineEdit.text().strip()
+
+        if keyword == "":
+            self.loadTable()
+            return
+
+        user = User()
+        data = user.search(keyword) or []
+
+        self.loadTable(data=data)
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
