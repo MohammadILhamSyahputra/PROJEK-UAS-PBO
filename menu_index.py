@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'menu_index.ui'
+# Form implementation generated from reading ui file 'user_index.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -101,7 +101,7 @@ class Ui_MainWindow(object):
         self.btn_dashboard_icon.setIcon(icon)
         self.btn_dashboard_icon.setIconSize(QtCore.QSize(20, 20))
         self.btn_dashboard_icon.setCheckable(True)
-        self.btn_dashboard_icon.setChecked(True)
+        self.btn_dashboard_icon.setChecked(False)
         self.btn_dashboard_icon.setAutoExclusive(True)
         self.btn_dashboard_icon.setObjectName("btn_dashboard_icon")
         self.verticalLayout_7.addWidget(self.btn_dashboard_icon)
@@ -120,6 +120,7 @@ class Ui_MainWindow(object):
         self.btn_user_icon.setIcon(icon1)
         self.btn_user_icon.setIconSize(QtCore.QSize(20, 20))
         self.btn_user_icon.setCheckable(True)
+        self.btn_user_icon.setChecked(True)
         self.btn_user_icon.setAutoExclusive(True)
         self.btn_user_icon.setObjectName("btn_user_icon")
         self.verticalLayout_7.addWidget(self.btn_user_icon)
@@ -272,7 +273,7 @@ class Ui_MainWindow(object):
         self.btn_dashboard_expanded.setIcon(icon)
         self.btn_dashboard_expanded.setIconSize(QtCore.QSize(20, 20))
         self.btn_dashboard_expanded.setCheckable(True)
-        self.btn_dashboard_expanded.setChecked(True)
+        self.btn_dashboard_expanded.setChecked(False)
         self.btn_dashboard_expanded.setAutoExclusive(True)
         self.btn_dashboard_expanded.setObjectName("btn_dashboard_expanded")
         self.verticalLayout_2.addWidget(self.btn_dashboard_expanded)
@@ -287,6 +288,7 @@ class Ui_MainWindow(object):
         self.btn_user_expanded.setIcon(icon1)
         self.btn_user_expanded.setIconSize(QtCore.QSize(20, 20))
         self.btn_user_expanded.setCheckable(True)
+        self.btn_user_expanded.setChecked(True)
         self.btn_user_expanded.setAutoExclusive(True)
         self.btn_user_expanded.setObjectName("btn_user_expanded")
         self.verticalLayout_2.addWidget(self.btn_user_expanded)
@@ -391,18 +393,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.setObjectName("verticalLayout_6")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.label_6 = QtWidgets.QLabel(self.widget_2)
-        font = QtGui.QFont()
-        font.setFamily("MS Reference Sans Serif")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_6.setFont(font)
-        self.label_6.setStyleSheet("color:black;")
-        self.label_6.setScaledContents(False)
-        self.label_6.setWordWrap(False)
-        self.label_6.setObjectName("label_6")
-        self.horizontalLayout_3.addWidget(self.label_6)
+        self.lineEdit = QtWidgets.QLineEdit(self.widget_2)
+        self.lineEdit.setObjectName("lineEdit")
+        self.horizontalLayout_3.addWidget(self.lineEdit)
         self.btn_add_menu = QtWidgets.QPushButton(self.widget_2)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -531,8 +524,7 @@ class Ui_MainWindow(object):
         self.btn_user_expanded.setText(_translate("MainWindow", "User"))
         self.btn_menu_expanded.setText(_translate("MainWindow", "Menu"))
         self.btn_logout_expanded.setText(_translate("MainWindow", "Logout"))
-        self.label_6.setText(_translate("MainWindow", "Menu"))
-        self.btn_add_menu.setText(_translate("MainWindow", "Tambah"))
+        self.btn_add_menu.setText(_translate("MainWindow", "     Menu      "))
 import images_rc
 
 
