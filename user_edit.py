@@ -526,12 +526,16 @@ class Ui_MainWindow(object):
 
 
     def UpdateData(self):
-        username_baru = self.lineEdit7.text()
-        nama_baru = self.lineEdit_4.text()
-        password_baru = self.lineEdit_6.text()
-        level_baru = self.comboBox_4.currentText()
-        user_baru = User(username_baru,nama_baru, password_baru, level_baru)
-        user_baru.update()
+        username = self.lineEdit_7.text()
+        nama = self.lineEdit_4.text()
+        password = self.lineEdit_6.text()
+        level = self.comboBox_4.currentText()
+
+        user = User()
+        user.update(nama, password, level, username)
+
+        QtWidgets.QMessageBox.information(None, "Success", "Data user berhasil diupdate!")
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -548,7 +552,7 @@ class Ui_MainWindow(object):
         self.label_16.setText(_translate("MainWindow", "Password"))
         self.label_17.setText(_translate("MainWindow", "Role"))
         self.comboBox_4.setItemText(0, _translate("MainWindow", "Admin"))
-        self.comboBox_4.setItemText(1, _translate("MainWindow", "Password"))
+        self.comboBox_4.setItemText(1, _translate("MainWindow", "Kasir"))
         self.pushButton_4.setText(_translate("MainWindow", "Kembali"))
         self.btn_save_2.setText(_translate("MainWindow", "Simpan"))
 import images_rc
