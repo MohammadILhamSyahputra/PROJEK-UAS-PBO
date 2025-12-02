@@ -97,4 +97,20 @@ class Menu:
         except Exception as e:
             print(f"[Menu] Error SELECT basic data: {e}")
             return None
+        
+    def search_menu_by_name(self, nama_keyword): # self DITAMBAHKAN
+        """Mencari menu di tabel menu berdasarkan nama keyword."""
+        # Menggunakan LIKE untuk pencarian yang fleksibel
+        sql = "SELECT id, nama, harga, stok FROM menu WHERE nama LIKE %s"
+        # Tambahkan wildcard % di awal dan akhir keyword
+        mycursor.execute(sql, ('%' + nama_keyword + '%',))
+        return mycursor.fetchall()
+
+    # 2. get_harga_menu_by_id (Menjadi Metode Instance)
+    def get_harga_menu_by_id(self, menu_id): # self DITAMBAHKAN
+        """Mengambil harga satuan dari menu berdasarkan ID."""
+        sql = "SELECT harga FROM menu WHERE id = %s"
+        mycursor.execute(sql, (menu_id,))
+        result = mycursor.fetchone()
+        return result[0] if result else 0
 
