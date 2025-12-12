@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>614</width>
+    <width>678</width>
     <height>474</height>
    </rect>
   </property>
@@ -64,7 +64,7 @@ QWidget {
 	background-color: #FF6D1F;
 }</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_7">
          <item>
@@ -159,7 +159,7 @@ QWidget {
             <bool>true</bool>
            </property>
            <property name="checked">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
            <property name="autoExclusive">
             <bool>true</bool>
@@ -167,7 +167,7 @@ QWidget {
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="btn_user_icon">
+          <widget class="QPushButton" name="btn_transaksi_icon">
            <property name="font">
             <font>
              <family>MS Sans Serif</family>
@@ -184,8 +184,8 @@ QWidget {
            </property>
            <property name="icon">
             <iconset resource="images.qrc">
-             <normaloff>:/image/images/mage--users-fill-off.png</normaloff>
-             <normalon>:/image/images/mage--users-fill.png</normalon>:/image/images/mage--users-fill-off.png</iconset>
+             <normaloff>:/image/images/mage--shopping-cart-fill.png</normaloff>
+             <normalon>:/image/images/mage--shopping-cart-fill-off.png</normalon>:/image/images/mage--shopping-cart-fill.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -194,6 +194,9 @@ QWidget {
             </size>
            </property>
            <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
             <bool>true</bool>
            </property>
            <property name="autoExclusive">
@@ -230,6 +233,44 @@ QWidget {
            </property>
            <property name="checkable">
             <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_riwayat_icon">
+           <property name="font">
+            <font>
+             <family>Microsoft Sans Serif</family>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="images.qrc">
+             <normaloff>:/image/images/mage--book-text-fill.png</normaloff>
+             <normalon>:/image/images/mage--book-text-fill-off.png</normalon>:/image/images/mage--book-text-fill.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
            </property>
            <property name="autoExclusive">
             <bool>true</bool>
@@ -317,18 +358,9 @@ QWidget {
 	background-color: #FF6D1F;
 }</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <property name="leftMargin">
-        <number>9</number>
-       </property>
-       <property name="topMargin">
-        <number>9</number>
-       </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
        <property name="rightMargin">
         <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>9</number>
        </property>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -498,7 +530,7 @@ QWidget {
             <bool>true</bool>
            </property>
            <property name="checked">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
            <property name="autoExclusive">
             <bool>true</bool>
@@ -506,7 +538,7 @@ QWidget {
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="btn_user_expanded">
+          <widget class="QPushButton" name="btn_transaksi_expanded">
            <property name="font">
             <font>
              <family>MS Sans Serif</family>
@@ -519,12 +551,12 @@ QWidget {
             <string notr="true"/>
            </property>
            <property name="text">
-            <string>User</string>
+            <string>Transaksi</string>
            </property>
            <property name="icon">
             <iconset resource="images.qrc">
-             <normaloff>:/image/images/mage--users-fill-off.png</normaloff>
-             <normalon>:/image/images/mage--users-fill.png</normalon>:/image/images/mage--users-fill-off.png</iconset>
+             <normaloff>:/image/images/mage--shopping-cart-fill.png</normaloff>
+             <normalon>:/image/images/mage--shopping-cart-fill-off.png</normalon>:/image/images/mage--shopping-cart-fill.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -535,13 +567,16 @@ QWidget {
            <property name="checkable">
             <bool>true</bool>
            </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
            <property name="autoExclusive">
             <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="btn_menu_expanded">
+          <widget class="QPushButton" name="btn_menu_expanded_2">
            <property name="font">
             <font>
              <family>MS Sans Serif</family>
@@ -569,6 +604,44 @@ QWidget {
            </property>
            <property name="checkable">
             <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_riwayat_expanded">
+           <property name="font">
+            <font>
+             <family>Microsoft Sans Serif</family>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>Riwayat</string>
+           </property>
+           <property name="icon">
+            <iconset resource="images.qrc">
+             <normaloff>:/image/images/mage--book-text-fill.png</normaloff>
+             <normalon>:/image/images/mage--book-text-fill-off.png</normalon>:/image/images/mage--book-text-fill.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
            </property>
            <property name="autoExclusive">
             <bool>true</bool>
@@ -657,7 +730,29 @@ QWidget {
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(250, 243, 225);</string>
+          <string notr="true">QWidget {
+	background-color: rgb(250, 243, 225);
+}
+
+QDateTimeEdit {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 3px 6px;
+}
+
+QDateTimeEdit::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: right;
+    width: 20px;
+    border: none;
+}
+
+QDateTimeEdit::down-arrow {
+    width: 12px;
+    height: 12px;
+}
+</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_6">
           <item>
@@ -714,6 +809,16 @@ QPushButton:checked {
               </property>
              </spacer>
             </item>
+            <item>
+             <widget class="QDateTimeEdit" name="dateTimeEdit">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+             </widget>
+            </item>
            </layout>
           </item>
          </layout>
@@ -738,6 +843,71 @@ QLineEdit {
 QComboBox {
 	background-color: white;
 	border-radius: 5px;
+}
+
+QTableWidget {
+    background-color: white;
+    border: 1px solid #F5E7C6;
+    border-radius: 12px;
+    gridline-color: #F5E7C6;
+    selection-background-color: rgb(181, 171, 146);
+    selection-color: #222222;
+    font-size: 14px;
+}
+
+QHeaderView::section {
+    background-color: #F5E7C6;
+    color: #222222;
+    padding: 8px;
+    border: none;
+    border-right: 1px solid #FAF3E1;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+QHeaderView {
+    background-color: #F5E7C6;
+    border-radius: 8px;
+}
+
+QTableWidget::item {
+    padding: 6px;
+    border: none;
+}
+
+QTableWidget::item:hover {
+    background-color: rgba(181, 171, 146, 90%);
+    color: #222222;
+}
+
+QTableWidget::item:selected {
+    background-color: rgb(181, 171, 146);
+    color: #222222;
+}
+
+QScrollBar:vertical {
+    background: transparent;
+    width: 12px;
+    margin: 6px 0 6px 0;
+}
+
+QScrollBar::handle:vertical {
+    background: #F5E7C6;
+    border-radius: 6px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: rgb(181, 171, 146);
+}
+
+QScrollBar::add-line,
+QScrollBar::sub-line {
+    height: 0;
+}
+
+QTableCornerButton::section {
+    background-color: #F5E7C6;
+    border: none;
 }</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -761,7 +931,7 @@ QComboBox {
              <string notr="true">color:black;</string>
             </property>
             <property name="text">
-             <string>Tambah Menu</string>
+             <string>Tambah Transaksi</string>
             </property>
             <property name="scaledContents">
              <bool>false</bool>
@@ -774,46 +944,22 @@ QComboBox {
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_8">
             <item>
+             <widget class="QLineEdit" name="lineEdit_4"/>
+            </item>
+            <item>
              <layout class="QHBoxLayout" name="horizontalLayout_11">
               <item>
                <widget class="QLabel" name="label_8">
+                <property name="font">
+                 <font>
+                  <pointsize>9</pointsize>
+                 </font>
+                </property>
                 <property name="styleSheet">
                  <string notr="true"/>
                 </property>
                 <property name="text">
-                 <string>Nama</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_6">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="lineEdit">
-                <property name="minimumSize">
-                 <size>
-                  <width>300</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>300</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
+                 <string>Masukkan Nama Menu</string>
                 </property>
                </widget>
               </item>
@@ -822,38 +968,34 @@ QComboBox {
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_10">
               <item>
-               <widget class="QLabel" name="label_9">
-                <property name="text">
-                 <string>Harga</string>
+               <widget class="QLineEdit" name="lineEdit_2">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
-               <spacer name="horizontalSpacer_5">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="lineEdit_2">
+               <widget class="QPushButton" name="pushButton">
                 <property name="minimumSize">
                  <size>
-                  <width>300</width>
+                  <width>100</width>
                   <height>30</height>
                  </size>
                 </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>300</width>
-                  <height>30</height>
-                 </size>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+	
+	background-color: rgb(3, 133, 255);
+	color: white;
+	padding: 2px;
+	border-radius: 5px;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Cari</string>
                 </property>
                </widget>
               </item>
@@ -862,46 +1004,7 @@ QComboBox {
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_9">
               <item>
-               <widget class="QLabel" name="label_10">
-                <property name="text">
-                 <string>Stok</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_4">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="lineEdit_3">
-                <property name="minimumSize">
-                 <size>
-                  <width>300</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>300</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="baseSize">
-                 <size>
-                  <width>0</width>
-                  <height>0</height>
-                 </size>
-                </property>
-               </widget>
+               <widget class="QTableWidget" name="tableWidget"/>
               </item>
              </layout>
             </item>
@@ -910,7 +1013,7 @@ QComboBox {
               <item>
                <widget class="QLabel" name="label_11">
                 <property name="text">
-                 <string>Jenis</string>
+                 <string>Jumlah</string>
                 </property>
                </widget>
               </item>
@@ -919,38 +1022,46 @@ QComboBox {
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Expanding</enum>
+                </property>
                 <property name="sizeHint" stdset="0">
                  <size>
-                  <width>20</width>
-                  <height>40</height>
+                  <width>40</width>
+                  <height>20</height>
                  </size>
                 </property>
                </spacer>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox">
+               <widget class="QLineEdit" name="lineEdit">
                 <property name="minimumSize">
                  <size>
-                  <width>300</width>
+                  <width>150</width>
                   <height>30</height>
                  </size>
                 </property>
-                <property name="maximumSize">
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_2">
+                <property name="minimumSize">
                  <size>
-                  <width>300</width>
+                  <width>100</width>
                   <height>30</height>
                  </size>
                 </property>
-                <item>
-                 <property name="text">
-                  <string>Makanan</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Minuman</string>
-                 </property>
-                </item>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+	background-color: rgb(1, 145, 255);
+	color: white;
+	padding: 2px;
+	border-radius: 5px;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Tambah</string>
+                </property>
                </widget>
               </item>
              </layout>
@@ -984,56 +1095,45 @@ QComboBox {
              <item>
               <widget class="QLabel" name="label_12">
                <property name="text">
-                <string>Makanan</string>
+                <string>Kode Transaksi</string>
                </property>
               </widget>
              </item>
              <item>
-              <spacer name="horizontalSpacer_3">
+              <spacer name="horizontalSpacer_10">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>20</width>
-                 <height>40</height>
+                 <width>40</width>
+                 <height>20</height>
                 </size>
                </property>
               </spacer>
              </item>
              <item>
-              <widget class="QComboBox" name="comboBox_2">
+              <widget class="QLineEdit" name="lineEdit_3">
                <property name="minimumSize">
                 <size>
-                 <width>300</width>
+                 <width>260</width>
                  <height>30</height>
                 </size>
                </property>
-               <property name="maximumSize">
-                <size>
-                 <width>300</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <item>
-                <property name="text">
-                 <string>--Pilih jenis kategori--</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>main menu</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>dessert</string>
-                </property>
-               </item>
               </widget>
              </item>
             </layout>
            </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Data Menu</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTableWidget" name="tableWidget_2"/>
           </item>
           <item>
            <widget class="QFrame" name="frame_minuman">
@@ -1061,73 +1161,136 @@ QComboBox {
              </property>
              <item>
               <widget class="QLabel" name="label_13">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>11</pointsize>
+                </font>
+               </property>
                <property name="text">
-                <string>Minuman</string>
+                <string>Total</string>
                </property>
               </widget>
              </item>
              <item>
-              <spacer name="horizontalSpacer_7">
+              <spacer name="horizontalSpacer_3">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>20</width>
-                 <height>27</height>
+                 <width>40</width>
+                 <height>20</height>
                 </size>
                </property>
               </spacer>
              </item>
              <item>
-              <widget class="QComboBox" name="comboBox_3">
+              <widget class="QLabel" name="label_10">
+               <property name="font">
+                <font>
+                 <pointsize>9</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_13">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_save">
                <property name="minimumSize">
                 <size>
-                 <width>300</width>
+                 <width>100</width>
                  <height>30</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>300</width>
+                 <width>100</width>
                  <height>30</height>
                 </size>
                </property>
-               <item>
-                <property name="text">
-                 <string>--pilih jenis penyajian--</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>panas</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>dingin</string>
-                </property>
-               </item>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+	background-color: rgb(0, 189, 0);
+	color: white;
+	padding: 2px;
+	border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Bayar</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_3">
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+	background-color: rgb(86, 86, 86);
+	color:  white;
+	padding: 2px;
+	border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Batal</string>
+               </property>
               </widget>
              </item>
             </layout>
            </widget>
           </item>
           <item>
-           <spacer name="verticalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>71</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
            <layout class="QHBoxLayout" name="horizontalLayout_15">
+            <item>
+             <widget class="QLabel" name="label_6">
+              <property name="text">
+               <string>Bayar</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_5">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+             </widget>
+            </item>
             <item>
              <spacer name="horizontalSpacer_8">
               <property name="orientation">
@@ -1142,58 +1305,34 @@ QComboBox {
              </spacer>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_3">
-              <property name="minimumSize">
-               <size>
-                <width>100</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>100</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton {
-	background-color: rgb(86, 86, 86);
-	color:  white;
-	padding: 2px;
-	border-radius: 5px;
-}</string>
-              </property>
+             <widget class="QLabel" name="label_9">
               <property name="text">
-               <string>Kembali</string>
+               <string>Kembalian</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="btn_save">
+             <widget class="QLineEdit" name="lineEdit_6">
               <property name="minimumSize">
                <size>
-                <width>100</width>
+                <width>0</width>
                 <height>30</height>
                </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>100</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton {
-	background-color: rgb(0, 189, 0);
-	color: white;
-	padding: 2px;
-	border-radius: 5px;
-}</string>
-              </property>
-              <property name="text">
-               <string>Simpan</string>
               </property>
              </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_17">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
            </layout>
           </item>
@@ -1217,8 +1356,8 @@ QComboBox {
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>221</x>
-     <y>54</y>
+     <x>243</x>
+     <y>39</y>
     </hint>
     <hint type="destinationlabel">
      <x>63</x>
@@ -1233,8 +1372,8 @@ QComboBox {
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>240</x>
-     <y>61</y>
+     <x>243</x>
+     <y>39</y>
     </hint>
     <hint type="destinationlabel">
      <x>186</x>
@@ -1259,98 +1398,34 @@ QComboBox {
    </hints>
   </connection>
   <connection>
-   <sender>btn_dashboard_expanded</sender>
+   <sender>btn_transaksi_expanded</sender>
    <signal>toggled(bool)</signal>
-   <receiver>btn_dashboard_icon</receiver>
+   <receiver>btn_transaksi_icon</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>137</x>
-     <y>107</y>
+     <x>188</x>
+     <y>152</y>
     </hint>
     <hint type="destinationlabel">
-     <x>31</x>
-     <y>114</y>
+     <x>47</x>
+     <y>152</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>btn_user_expanded</sender>
+   <sender>btn_transaksi_icon</sender>
    <signal>toggled(bool)</signal>
-   <receiver>btn_user_icon</receiver>
+   <receiver>btn_transaksi_expanded</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>109</x>
-     <y>148</y>
+     <x>44</x>
+     <y>152</y>
     </hint>
     <hint type="destinationlabel">
-     <x>35</x>
-     <y>161</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btn_menu_expanded</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>btn_menu_icon</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>117</x>
-     <y>201</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>37</x>
-     <y>202</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btn_dashboard_icon</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>btn_dashboard_expanded</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>43</x>
-     <y>100</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>123</x>
-     <y>100</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btn_user_icon</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>btn_user_expanded</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>23</x>
-     <y>145</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>168</x>
-     <y>144</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btn_menu_icon</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>btn_menu_expanded</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>34</x>
-     <y>182</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>153</x>
-     <y>196</y>
+     <x>188</x>
+     <y>152</y>
     </hint>
    </hints>
   </connection>
@@ -1367,6 +1442,102 @@ QComboBox {
     <hint type="destinationlabel">
      <x>48</x>
      <y>513</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_dashboard_expanded</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btn_dashboard_icon</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>105</x>
+     <y>91</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>35</x>
+     <y>90</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_dashboard_icon</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btn_dashboard_expanded</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>134</x>
+     <y>72</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_menu_expanded_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btn_menu_icon</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>97</x>
+     <y>180</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>39</x>
+     <y>188</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_menu_icon</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btn_menu_expanded_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>36</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>105</x>
+     <y>184</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_riwayat_expanded</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btn_riwayat_icon</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>108</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>36</x>
+     <y>221</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_riwayat_icon</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btn_riwayat_expanded</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>34</x>
+     <y>208</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>99</x>
+     <y>226</y>
     </hint>
    </hints>
   </connection>

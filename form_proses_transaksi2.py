@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'transaksi.ui'
+# Form implementation generated from reading ui file 'transaksi_create.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -9,15 +9,14 @@
 
 from menu import Menu
 from transkasi import Transaksi
-from makanan import Makanan
-from minuman import Minuman
+from PyQt5.QtCore import QTimer, QDateTime
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(614, 474)
+        MainWindow.resize(678, 474)
         MainWindow.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -49,8 +48,8 @@ class Ui_MainWindow(object):
 "    background-color: #FF6D1F;\n"
 "}")
         self.icon_only_widget.setObjectName("icon_only_widget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.icon_only_widget)
-        self.verticalLayout.setObjectName("verticalLayout")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.icon_only_widget)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.verticalLayout_7 = QtWidgets.QVBoxLayout()
         self.verticalLayout_7.setObjectName("verticalLayout_7")
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
@@ -83,42 +82,6 @@ class Ui_MainWindow(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.verticalLayout_7.addWidget(self.line)
-        self.btn_user_icon = QtWidgets.QPushButton(self.icon_only_widget)
-        font = QtGui.QFont()
-        font.setFamily("MS Sans Serif")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.btn_user_icon.setFont(font)
-        self.btn_user_icon.setStyleSheet("")
-        self.btn_user_icon.setText("")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/image/images/mage--users-fill-off.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap(":/image/images/mage--users-fill.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.btn_user_icon.setIcon(icon)
-        self.btn_user_icon.setIconSize(QtCore.QSize(20, 20))
-        self.btn_user_icon.setCheckable(True)
-        self.btn_user_icon.setAutoExclusive(True)
-        self.btn_user_icon.setObjectName("btn_user_icon")
-        self.verticalLayout_7.addWidget(self.btn_user_icon)
-        self.btn_menu_icon = QtWidgets.QPushButton(self.icon_only_widget)
-        font = QtGui.QFont()
-        font.setFamily("MS Sans Serif")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.btn_menu_icon.setFont(font)
-        self.btn_menu_icon.setStyleSheet("")
-        self.btn_menu_icon.setText("")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/image/images/mage--clipboard-2-fill-off.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon1.addPixmap(QtGui.QPixmap(":/image/images/mage--clipboard-2-fill.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.btn_menu_icon.setIcon(icon1)
-        self.btn_menu_icon.setIconSize(QtCore.QSize(20, 20))
-        self.btn_menu_icon.setCheckable(True)
-        self.btn_menu_icon.setAutoExclusive(True)
-        self.btn_menu_icon.setObjectName("btn_menu_icon")
-        self.verticalLayout_7.addWidget(self.btn_menu_icon)
         self.btn_dashboard_icon = QtWidgets.QPushButton(self.icon_only_widget)
         font = QtGui.QFont()
         font.setFamily("Microsoft Sans Serif")
@@ -128,22 +91,78 @@ class Ui_MainWindow(object):
         self.btn_dashboard_icon.setFont(font)
         self.btn_dashboard_icon.setStyleSheet("")
         self.btn_dashboard_icon.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/image/images/mage--home-fill-off.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon2.addPixmap(QtGui.QPixmap(":/image/images/mage--home-fill.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        icon2.addPixmap(QtGui.QPixmap(":/image/images/mage--home-fill-off.png"), QtGui.QIcon.Disabled, QtGui.QIcon.Off)
-        icon2.addPixmap(QtGui.QPixmap(":/image/images/mage--home-fill.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
-        icon2.addPixmap(QtGui.QPixmap(":/image/images/mage--home-fill-off.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
-        icon2.addPixmap(QtGui.QPixmap(":/image/images/mage--home-fill.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
-        icon2.addPixmap(QtGui.QPixmap(":/image/images/mage--home-fill-off.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
-        icon2.addPixmap(QtGui.QPixmap(":/image/images/mage--home-fill.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
-        self.btn_dashboard_icon.setIcon(icon2)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/image/images/mage--home-fill-off.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/image/images/mage--home-fill.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap(":/image/images/mage--home-fill-off.png"), QtGui.QIcon.Disabled, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/image/images/mage--home-fill.png"), QtGui.QIcon.Disabled, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap(":/image/images/mage--home-fill-off.png"), QtGui.QIcon.Active, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/image/images/mage--home-fill.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap(":/image/images/mage--home-fill-off.png"), QtGui.QIcon.Selected, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/image/images/mage--home-fill.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        self.btn_dashboard_icon.setIcon(icon)
         self.btn_dashboard_icon.setIconSize(QtCore.QSize(20, 20))
         self.btn_dashboard_icon.setCheckable(True)
-        self.btn_dashboard_icon.setChecked(True)
+        self.btn_dashboard_icon.setChecked(False)
         self.btn_dashboard_icon.setAutoExclusive(True)
         self.btn_dashboard_icon.setObjectName("btn_dashboard_icon")
         self.verticalLayout_7.addWidget(self.btn_dashboard_icon)
+        self.btn_transaksi_icon = QtWidgets.QPushButton(self.icon_only_widget)
+        font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_transaksi_icon.setFont(font)
+        self.btn_transaksi_icon.setStyleSheet("")
+        self.btn_transaksi_icon.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/image/images/mage--shopping-cart-fill.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(":/image/images/mage--shopping-cart-fill-off.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.btn_transaksi_icon.setIcon(icon1)
+        self.btn_transaksi_icon.setIconSize(QtCore.QSize(20, 20))
+        self.btn_transaksi_icon.setCheckable(True)
+        self.btn_transaksi_icon.setChecked(True)
+        self.btn_transaksi_icon.setAutoExclusive(True)
+        self.btn_transaksi_icon.setObjectName("btn_transaksi_icon")
+        self.verticalLayout_7.addWidget(self.btn_transaksi_icon)
+        self.btn_menu_icon = QtWidgets.QPushButton(self.icon_only_widget)
+        font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_menu_icon.setFont(font)
+        self.btn_menu_icon.setStyleSheet("")
+        self.btn_menu_icon.setText("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(":/image/images/mage--clipboard-2-fill-off.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(":/image/images/mage--clipboard-2-fill.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.btn_menu_icon.setIcon(icon2)
+        self.btn_menu_icon.setIconSize(QtCore.QSize(20, 20))
+        self.btn_menu_icon.setCheckable(True)
+        self.btn_menu_icon.setAutoExclusive(True)
+        self.btn_menu_icon.setObjectName("btn_menu_icon")
+        self.verticalLayout_7.addWidget(self.btn_menu_icon)
+        self.btn_riwayat_icon = QtWidgets.QPushButton(self.icon_only_widget)
+        font = QtGui.QFont()
+        font.setFamily("Microsoft Sans Serif")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_riwayat_icon.setFont(font)
+        self.btn_riwayat_icon.setStyleSheet("")
+        self.btn_riwayat_icon.setText("")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(":/image/images/mage--book-text-fill.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap(":/image/images/mage--book-text-fill-off.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.btn_riwayat_icon.setIcon(icon3)
+        self.btn_riwayat_icon.setIconSize(QtCore.QSize(20, 20))
+        self.btn_riwayat_icon.setCheckable(True)
+        self.btn_riwayat_icon.setChecked(False)
+        self.btn_riwayat_icon.setAutoExclusive(True)
+        self.btn_riwayat_icon.setObjectName("btn_riwayat_icon")
+        self.verticalLayout_7.addWidget(self.btn_riwayat_icon)
         spacerItem = QtWidgets.QSpacerItem(40, 200, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_7.addItem(spacerItem)
         self.btn_logout_icon = QtWidgets.QPushButton(self.icon_only_widget)
@@ -157,14 +176,14 @@ class Ui_MainWindow(object):
 "    border-radius: 12px;\n"
 "}")
         self.btn_logout_icon.setText("")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(":/image/images/mage--shut-down-fill-off.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon3.addPixmap(QtGui.QPixmap(":/image/images/mage--shut-down-fill.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.btn_logout_icon.setIcon(icon3)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(":/image/images/mage--shut-down-fill-off.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon4.addPixmap(QtGui.QPixmap(":/image/images/mage--shut-down-fill.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.btn_logout_icon.setIcon(icon4)
         self.btn_logout_icon.setIconSize(QtCore.QSize(20, 20))
         self.btn_logout_icon.setObjectName("btn_logout_icon")
         self.verticalLayout_7.addWidget(self.btn_logout_icon)
-        self.verticalLayout.addLayout(self.verticalLayout_7)
+        self.verticalLayout_4.addLayout(self.verticalLayout_7)
         self.gridLayout.addWidget(self.icon_only_widget, 0, 0, 1, 1)
         self.icon_name_widget = QtWidgets.QWidget(self.centralwidget)
         self.icon_name_widget.setMaximumSize(QtCore.QSize(150, 16777215))
@@ -191,9 +210,9 @@ class Ui_MainWindow(object):
 "    background-color: #FF6D1F;\n"
 "}")
         self.icon_name_widget.setObjectName("icon_name_widget")
-        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.icon_name_widget)
-        self.verticalLayout_4.setContentsMargins(9, 9, 0, 9)
-        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.icon_name_widget)
+        self.verticalLayout.setContentsMargins(-1, -1, 0, -1)
+        self.verticalLayout.setObjectName("verticalLayout")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
@@ -264,34 +283,6 @@ class Ui_MainWindow(object):
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
         self.verticalLayout_2.addWidget(self.line_2)
-        self.btn_user_expanded = QtWidgets.QPushButton(self.icon_name_widget)
-        font = QtGui.QFont()
-        font.setFamily("MS Sans Serif")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.btn_user_expanded.setFont(font)
-        self.btn_user_expanded.setStyleSheet("")
-        self.btn_user_expanded.setIcon(icon)
-        self.btn_user_expanded.setIconSize(QtCore.QSize(20, 20))
-        self.btn_user_expanded.setCheckable(True)
-        self.btn_user_expanded.setAutoExclusive(True)
-        self.btn_user_expanded.setObjectName("btn_user_expanded")
-        self.verticalLayout_2.addWidget(self.btn_user_expanded)
-        self.btn_menu_expanded = QtWidgets.QPushButton(self.icon_name_widget)
-        font = QtGui.QFont()
-        font.setFamily("MS Sans Serif")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.btn_menu_expanded.setFont(font)
-        self.btn_menu_expanded.setStyleSheet("")
-        self.btn_menu_expanded.setIcon(icon1)
-        self.btn_menu_expanded.setIconSize(QtCore.QSize(20, 20))
-        self.btn_menu_expanded.setCheckable(True)
-        self.btn_menu_expanded.setAutoExclusive(True)
-        self.btn_menu_expanded.setObjectName("btn_menu_expanded")
-        self.verticalLayout_2.addWidget(self.btn_menu_expanded)
         self.btn_dashboard_expanded = QtWidgets.QPushButton(self.icon_name_widget)
         font = QtGui.QFont()
         font.setFamily("Microsoft Sans Serif")
@@ -300,13 +291,57 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.btn_dashboard_expanded.setFont(font)
         self.btn_dashboard_expanded.setStyleSheet("")
-        self.btn_dashboard_expanded.setIcon(icon2)
+        self.btn_dashboard_expanded.setIcon(icon)
         self.btn_dashboard_expanded.setIconSize(QtCore.QSize(20, 20))
         self.btn_dashboard_expanded.setCheckable(True)
-        self.btn_dashboard_expanded.setChecked(True)
+        self.btn_dashboard_expanded.setChecked(False)
         self.btn_dashboard_expanded.setAutoExclusive(True)
         self.btn_dashboard_expanded.setObjectName("btn_dashboard_expanded")
         self.verticalLayout_2.addWidget(self.btn_dashboard_expanded)
+        self.btn_transaksi_expanded = QtWidgets.QPushButton(self.icon_name_widget)
+        font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_transaksi_expanded.setFont(font)
+        self.btn_transaksi_expanded.setStyleSheet("")
+        self.btn_transaksi_expanded.setIcon(icon1)
+        self.btn_transaksi_expanded.setIconSize(QtCore.QSize(20, 20))
+        self.btn_transaksi_expanded.setCheckable(True)
+        self.btn_transaksi_expanded.setChecked(True)
+        self.btn_transaksi_expanded.setAutoExclusive(True)
+        self.btn_transaksi_expanded.setObjectName("btn_transaksi_expanded")
+        self.verticalLayout_2.addWidget(self.btn_transaksi_expanded)
+        self.btn_menu_expanded_2 = QtWidgets.QPushButton(self.icon_name_widget)
+        font = QtGui.QFont()
+        font.setFamily("MS Sans Serif")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_menu_expanded_2.setFont(font)
+        self.btn_menu_expanded_2.setStyleSheet("")
+        self.btn_menu_expanded_2.setIcon(icon2)
+        self.btn_menu_expanded_2.setIconSize(QtCore.QSize(20, 20))
+        self.btn_menu_expanded_2.setCheckable(True)
+        self.btn_menu_expanded_2.setAutoExclusive(True)
+        self.btn_menu_expanded_2.setObjectName("btn_menu_expanded_2")
+        self.verticalLayout_2.addWidget(self.btn_menu_expanded_2)
+        self.btn_riwayat_expanded = QtWidgets.QPushButton(self.icon_name_widget)
+        font = QtGui.QFont()
+        font.setFamily("Microsoft Sans Serif")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_riwayat_expanded.setFont(font)
+        self.btn_riwayat_expanded.setStyleSheet("")
+        self.btn_riwayat_expanded.setIcon(icon3)
+        self.btn_riwayat_expanded.setIconSize(QtCore.QSize(20, 20))
+        self.btn_riwayat_expanded.setCheckable(True)
+        self.btn_riwayat_expanded.setChecked(False)
+        self.btn_riwayat_expanded.setAutoExclusive(True)
+        self.btn_riwayat_expanded.setObjectName("btn_riwayat_expanded")
+        self.verticalLayout_2.addWidget(self.btn_riwayat_expanded)
         spacerItem1 = QtWidgets.QSpacerItem(40, 200, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_2.addItem(spacerItem1)
         self.btn_logout_expanded = QtWidgets.QPushButton(self.icon_name_widget)
@@ -319,11 +354,11 @@ class Ui_MainWindow(object):
         self.btn_logout_expanded.setStyleSheet("QPushButton {\n"
 "    border-radius: 12px;\n"
 "}")
-        self.btn_logout_expanded.setIcon(icon3)
+        self.btn_logout_expanded.setIcon(icon4)
         self.btn_logout_expanded.setIconSize(QtCore.QSize(20, 20))
         self.btn_logout_expanded.setObjectName("btn_logout_expanded")
         self.verticalLayout_2.addWidget(self.btn_logout_expanded)
-        self.verticalLayout_4.addLayout(self.verticalLayout_2)
+        self.verticalLayout.addLayout(self.verticalLayout_2)
         self.gridLayout.addWidget(self.icon_name_widget, 0, 1, 1, 1)
         self.main_menu = QtWidgets.QWidget(self.centralwidget)
         self.main_menu.setStyleSheet("background-color: rgb(255, 255, 255);")
@@ -332,12 +367,32 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.setContentsMargins(0, 0, -1, 0)
         self.verticalLayout_5.setSpacing(0)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
-        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.verticalLayout_5.addItem(spacerItem2)
         self.widget = QtWidgets.QWidget(self.main_menu)
         self.widget.setMinimumSize(QtCore.QSize(0, 50))
         self.widget.setMaximumSize(QtCore.QSize(16777215, 50))
-        self.widget.setStyleSheet("background-color: rgb(250, 243, 225);")
+        self.widget.setStyleSheet("QWidget {\n"
+"    background-color: rgb(250, 243, 225);\n"
+"}\n"
+"\n"
+"QDateTimeEdit {\n"
+"    background-color: white;\n"
+"    color: black;\n"
+"    border-radius: 5px;\n"
+"    padding: 3px 6px;\n"
+"}\n"
+"\n"
+"QDateTimeEdit::drop-down {\n"
+"    subcontrol-origin: padding;\n"
+"    subcontrol-position: right;\n"
+"    width: 20px;\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QDateTimeEdit::down-arrow {\n"
+"    width: 12px;\n"
+"    height: 12px;\n"
+"}\n"
+"")
         self.widget.setObjectName("widget")
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.widget)
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
@@ -361,17 +416,18 @@ class Ui_MainWindow(object):
 "    background-color: #222222;\n"
 "}")
         self.btn_expand.setText("")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(":/image/images/mage--dash-menu-off.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon4.addPixmap(QtGui.QPixmap(":/image/images/mage--double-arrow-left-off.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.btn_expand.setIcon(icon4)
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap(":/image/images/mage--dash-menu-off.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon5.addPixmap(QtGui.QPixmap(":/image/images/mage--double-arrow-left-off.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        self.btn_expand.setIcon(icon5)
         self.btn_expand.setIconSize(QtCore.QSize(20, 20))
         self.btn_expand.setCheckable(True)
         self.btn_expand.setObjectName("btn_expand")
         self.horizontalLayout.addWidget(self.btn_expand)
-        spacerItem3 = QtWidgets.QSpacerItem(20, 118, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout.addItem(spacerItem3)
+        spacerItem2 = QtWidgets.QSpacerItem(20, 118, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem2)
         self.dateTimeEdit = QtWidgets.QDateTimeEdit(self.widget)
+        self.dateTimeEdit.setMinimumSize(QtCore.QSize(0, 30))
         self.dateTimeEdit.setObjectName("dateTimeEdit")
         self.horizontalLayout.addWidget(self.dateTimeEdit)
         self.horizontalLayout_6.addLayout(self.horizontalLayout)
@@ -393,6 +449,71 @@ class Ui_MainWindow(object):
 "QComboBox {\n"
 "    background-color: white;\n"
 "    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QTableWidget {\n"
+"    background-color: white;\n"
+"    border: 1px solid #F5E7C6;\n"
+"    border-radius: 12px;\n"
+"    gridline-color: #F5E7C6;\n"
+"    selection-background-color: rgb(181, 171, 146);\n"
+"    selection-color: #222222;\n"
+"    font-size: 14px;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #F5E7C6;\n"
+"    color: #222222;\n"
+"    padding: 8px;\n"
+"    border: none;\n"
+"    border-right: 1px solid #FAF3E1;\n"
+"    font-weight: bold;\n"
+"    font-size: 14px;\n"
+"}\n"
+"\n"
+"QHeaderView {\n"
+"    background-color: #F5E7C6;\n"
+"    border-radius: 8px;\n"
+"}\n"
+"\n"
+"QTableWidget::item {\n"
+"    padding: 6px;\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QTableWidget::item:hover {\n"
+"    background-color: rgba(181, 171, 146, 90%);\n"
+"    color: #222222;\n"
+"}\n"
+"\n"
+"QTableWidget::item:selected {\n"
+"    background-color: rgb(181, 171, 146);\n"
+"    color: #222222;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    background: transparent;\n"
+"    width: 12px;\n"
+"    margin: 6px 0 6px 0;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: #F5E7C6;\n"
+"    border-radius: 6px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:hover {\n"
+"    background: rgb(181, 171, 146);\n"
+"}\n"
+"\n"
+"QScrollBar::add-line,\n"
+"QScrollBar::sub-line {\n"
+"    height: 0;\n"
+"}\n"
+"\n"
+"QTableCornerButton::section {\n"
+"    background-color: #F5E7C6;\n"
+"    border: none;\n"
 "}")
         self.widget_2.setObjectName("widget_2")
         self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.widget_2)
@@ -412,9 +533,15 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.addWidget(self.label_7)
         self.verticalLayout_8 = QtWidgets.QVBoxLayout()
         self.verticalLayout_8.setObjectName("verticalLayout_8")
+        self.lineEdit_4 = QtWidgets.QLineEdit(self.widget_2)
+        self.lineEdit_4.setObjectName("lineEdit_4")
+        self.verticalLayout_8.addWidget(self.lineEdit_4)
         self.horizontalLayout_11 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_11.setObjectName("horizontalLayout_11")
         self.label_8 = QtWidgets.QLabel(self.widget_2)
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.label_8.setFont(font)
         self.label_8.setStyleSheet("")
         self.label_8.setObjectName("label_8")
         self.horizontalLayout_11.addWidget(self.label_8)
@@ -422,9 +549,18 @@ class Ui_MainWindow(object):
         self.horizontalLayout_10 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_10.setObjectName("horizontalLayout_10")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.widget_2)
+        self.lineEdit_2.setMinimumSize(QtCore.QSize(0, 30))
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.horizontalLayout_10.addWidget(self.lineEdit_2)
         self.pushButton = QtWidgets.QPushButton(self.widget_2)
+        self.pushButton.setMinimumSize(QtCore.QSize(100, 30))
+        self.pushButton.setStyleSheet("QPushButton {\n"
+"    \n"
+"    background-color: rgb(3, 133, 255);\n"
+"    color: white;\n"
+"    padding: 2px;\n"
+"    border-radius: 5px;\n"
+"}")
         self.pushButton.setObjectName("pushButton")
         self.horizontalLayout_10.addWidget(self.pushButton)
         self.verticalLayout_8.addLayout(self.horizontalLayout_10)
@@ -441,20 +577,22 @@ class Ui_MainWindow(object):
         self.label_11 = QtWidgets.QLabel(self.widget_2)
         self.label_11.setObjectName("label_11")
         self.horizontalLayout_8.addWidget(self.label_11)
-        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_8.addItem(spacerItem4)
+        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_8.addItem(spacerItem3)
         self.lineEdit = QtWidgets.QLineEdit(self.widget_2)
+        self.lineEdit.setMinimumSize(QtCore.QSize(150, 30))
         self.lineEdit.setObjectName("lineEdit")
         self.horizontalLayout_8.addWidget(self.lineEdit)
-        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_8.addItem(spacerItem5)
-        spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_8.addItem(spacerItem6)
         self.pushButton_2 = QtWidgets.QPushButton(self.widget_2)
+        self.pushButton_2.setMinimumSize(QtCore.QSize(100, 30))
+        self.pushButton_2.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(1, 145, 255);\n"
+"    color: white;\n"
+"    padding: 2px;\n"
+"    border-radius: 5px;\n"
+"}")
         self.pushButton_2.setObjectName("pushButton_2")
         self.horizontalLayout_8.addWidget(self.pushButton_2)
-        spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_8.addItem(spacerItem7)
         self.verticalLayout_8.addLayout(self.horizontalLayout_8)
         self.verticalLayout_6.addLayout(self.verticalLayout_8)
         self.frame_makanan = QtWidgets.QFrame(self.widget_2)
@@ -467,15 +605,12 @@ class Ui_MainWindow(object):
         self.label_12 = QtWidgets.QLabel(self.frame_makanan)
         self.label_12.setObjectName("label_12")
         self.horizontalLayout_13.addWidget(self.label_12)
+        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_13.addItem(spacerItem4)
         self.lineEdit_3 = QtWidgets.QLineEdit(self.frame_makanan)
+        self.lineEdit_3.setMinimumSize(QtCore.QSize(260, 30))
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.horizontalLayout_13.addWidget(self.lineEdit_3)
-        spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_13.addItem(spacerItem8)
-        spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_13.addItem(spacerItem9)
-        spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_13.addItem(spacerItem10)
         self.verticalLayout_6.addWidget(self.frame_makanan)
         self.label = QtWidgets.QLabel(self.widget_2)
         self.label.setObjectName("label")
@@ -493,13 +628,22 @@ class Ui_MainWindow(object):
         self.horizontalLayout_14.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_14.setObjectName("horizontalLayout_14")
         self.label_13 = QtWidgets.QLabel(self.frame_minuman)
+        self.label_13.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_13.setFont(font)
         self.label_13.setObjectName("label_13")
         self.horizontalLayout_14.addWidget(self.label_13)
-        self.lineEdit_4 = QtWidgets.QLineEdit(self.frame_minuman)
-        self.lineEdit_4.setObjectName("lineEdit_4")
-        self.horizontalLayout_14.addWidget(self.lineEdit_4)
-        spacerItem11 = QtWidgets.QSpacerItem(20, 27, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_14.addItem(spacerItem11)
+        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_14.addItem(spacerItem5)
+        self.label_10 = QtWidgets.QLabel(self.frame_minuman)
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.label_10.setFont(font)
+        self.label_10.setObjectName("label_10")
+        self.horizontalLayout_14.addWidget(self.label_10)
+        spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_14.addItem(spacerItem6)
         self.btn_save = QtWidgets.QPushButton(self.frame_minuman)
         self.btn_save.setMinimumSize(QtCore.QSize(100, 30))
         self.btn_save.setMaximumSize(QtCore.QSize(100, 30))
@@ -529,16 +673,20 @@ class Ui_MainWindow(object):
         self.label_6.setObjectName("label_6")
         self.horizontalLayout_15.addWidget(self.label_6)
         self.lineEdit_5 = QtWidgets.QLineEdit(self.widget_2)
+        self.lineEdit_5.setMinimumSize(QtCore.QSize(0, 30))
         self.lineEdit_5.setObjectName("lineEdit_5")
         self.horizontalLayout_15.addWidget(self.lineEdit_5)
-        spacerItem12 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_15.addItem(spacerItem12)
+        spacerItem7 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_15.addItem(spacerItem7)
         self.label_9 = QtWidgets.QLabel(self.widget_2)
         self.label_9.setObjectName("label_9")
         self.horizontalLayout_15.addWidget(self.label_9)
         self.lineEdit_6 = QtWidgets.QLineEdit(self.widget_2)
+        self.lineEdit_6.setMinimumSize(QtCore.QSize(0, 30))
         self.lineEdit_6.setObjectName("lineEdit_6")
         self.horizontalLayout_15.addWidget(self.lineEdit_6)
+        spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_15.addItem(spacerItem8)
         self.verticalLayout_6.addLayout(self.horizontalLayout_15)
         self.verticalLayout_5.addWidget(self.widget_2)
         self.gridLayout.addWidget(self.main_menu, 0, 2, 1, 1)
@@ -548,13 +696,15 @@ class Ui_MainWindow(object):
         self.btn_expand.toggled['bool'].connect(self.icon_only_widget.setHidden) # type: ignore
         self.btn_expand.toggled['bool'].connect(self.icon_name_widget.setVisible) # type: ignore
         self.btn_logout_expanded.clicked.connect(MainWindow.close) # type: ignore
-        self.btn_dashboard_expanded.toggled['bool'].connect(self.btn_dashboard_icon.setChecked) # type: ignore
-        self.btn_user_expanded.toggled['bool'].connect(self.btn_user_icon.setChecked) # type: ignore
-        self.btn_menu_expanded.toggled['bool'].connect(self.btn_menu_icon.setChecked) # type: ignore
-        self.btn_dashboard_icon.toggled['bool'].connect(self.btn_dashboard_expanded.setChecked) # type: ignore
-        self.btn_user_icon.toggled['bool'].connect(self.btn_user_expanded.setChecked) # type: ignore
-        self.btn_menu_icon.toggled['bool'].connect(self.btn_menu_expanded.setChecked) # type: ignore
+        self.btn_transaksi_expanded.toggled['bool'].connect(self.btn_transaksi_icon.setChecked) # type: ignore
+        self.btn_transaksi_icon.toggled['bool'].connect(self.btn_transaksi_expanded.setChecked) # type: ignore
         self.btn_logout_icon.clicked.connect(MainWindow.close) # type: ignore
+        self.btn_dashboard_expanded.toggled['bool'].connect(self.btn_dashboard_icon.setChecked) # type: ignore
+        self.btn_dashboard_icon.toggled['bool'].connect(self.btn_dashboard_expanded.setChecked) # type: ignore
+        self.btn_menu_expanded_2.toggled['bool'].connect(self.btn_menu_icon.setChecked) # type: ignore
+        self.btn_menu_icon.toggled['bool'].connect(self.btn_menu_expanded_2.setChecked) # type: ignore
+        self.btn_riwayat_expanded.toggled['bool'].connect(self.btn_riwayat_icon.setChecked) # type: ignore
+        self.btn_riwayat_icon.toggled['bool'].connect(self.btn_riwayat_expanded.setChecked) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         self.pushButton.clicked.connect(self.search_menu)
@@ -567,16 +717,43 @@ class Ui_MainWindow(object):
         self.tableWidget_2.setColumnCount(5)
         self.tableWidget_2.setHorizontalHeaderLabels(["ID Trans", "Kode", "Menu", "Qty", "Subtotal"])
 
+        #PENGATURAN DATETIME EDIT       
+        # self.dateTimeEdit = QtWidgets.QDateTimeEdit(self.widget)
+        self.dateTimeEdit.setMinimumSize(QtCore.QSize(0, 30))
+        self.dateTimeEdit.setObjectName("dateTimeEdit")
+        current_datetime = QtCore.QDateTime.currentDateTime()
+
+        self.dateTimeEdit.setDateTime(current_datetime)
+        self.dateTimeEdit.setReadOnly(True) 
+        self.dateTimeEdit.setDisplayFormat("dd/MM/yyyy HH:mm:ss")
+        self.timer = QTimer()
+        # Hubungkan sinyal timeout timer ke method update_time
+        self.timer.timeout.connect(self.update_live_time)
+        # Mulai timer, memicu timeout setiap 1000 milidetik (1 detik)
+        self.timer.start(1000)
+
+        # self.loggedInUsername = "Kasir_Saat_Ini"
+        # self.lineEdit_4.setText(self.loggedInUsername)
+        # self.lineEdit_4.setReadOnly(True)
+
+        self.loggedInUsername = "Guest" # Nilai default
+        self.current_kode_transaksi = None
+        
+        # Asumsi: LineEdit Kasir adalah self.lineEdit_4 (sesuai permintaan sebelumnya)
+        self.lineEdit_4.setReadOnly(True)
+        self.lineEdit_4.setText(self.loggedInUsername)
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_3.setText(_translate("MainWindow", "NIBA"))
         self.label_5.setText(_translate("MainWindow", "RESTO"))
-        self.btn_user_expanded.setText(_translate("MainWindow", "User"))
-        self.btn_menu_expanded.setText(_translate("MainWindow", "Menu"))
         self.btn_dashboard_expanded.setText(_translate("MainWindow", "Dashboard"))
+        self.btn_transaksi_expanded.setText(_translate("MainWindow", "Transaksi"))
+        self.btn_menu_expanded_2.setText(_translate("MainWindow", "Menu"))
+        self.btn_riwayat_expanded.setText(_translate("MainWindow", "Riwayat"))
         self.btn_logout_expanded.setText(_translate("MainWindow", "Logout"))
-        self.label_7.setText(_translate("MainWindow", "Form Transaksi"))
+        self.label_7.setText(_translate("MainWindow", "Tambah Transaksi"))
         self.label_8.setText(_translate("MainWindow", "Masukkan Nama Menu"))
         self.pushButton.setText(_translate("MainWindow", "Cari"))
         self.label_11.setText(_translate("MainWindow", "Jumlah"))
@@ -584,6 +761,7 @@ class Ui_MainWindow(object):
         self.label_12.setText(_translate("MainWindow", "Kode Transaksi"))
         self.label.setText(_translate("MainWindow", "Data Menu"))
         self.label_13.setText(_translate("MainWindow", "Total"))
+        self.label_10.setText(_translate("MainWindow", "0"))
         self.btn_save.setText(_translate("MainWindow", "Bayar"))
         self.pushButton_3.setText(_translate("MainWindow", "Batal"))
         self.label_6.setText(_translate("MainWindow", "Bayar"))
@@ -646,6 +824,7 @@ class Ui_MainWindow(object):
                 return
 
         id_menu = int(self.selected_menu_id)
+        username_kasir = self.loggedInUsername
         menu_finder = Menu(id_menu=None, nama="", harga=0, stok=0) 
         
         tr_instance = Transaksi() 
@@ -669,6 +848,7 @@ class Ui_MainWindow(object):
         item_baru = Transaksi(
                 kode_transaksi=self.current_kode_transaksi,
                 id_menu=id_menu,
+                username_kasir=username_kasir,
                 qty=qty,
                 harga_total=harga_total
         )
@@ -700,9 +880,9 @@ class Ui_MainWindow(object):
     def refresh_grand_total(self, tr_instance):
         if self.current_kode_transaksi:
                 grand_total = tr_instance.calculate_grand_total(self.current_kode_transaksi)
-                self.lineEdit_4.setText(f"{grand_total:,.0f}")
+                self.label_10.setText(f"{grand_total:,.0f}")
         else:
-                self.lineEdit_4.setText("0")
+                self.label_10.setText("0")
 
     def proses_pembayaran(self):
         tr_instance = Transaksi()
@@ -737,13 +917,26 @@ class Ui_MainWindow(object):
     def reset_transaksi_state(self):
         self.current_kode_transaksi = None
         self.tableWidget_2.setRowCount(0)
-        self.lineEdit_4.setText("0")
+        self.label_10.setText("0")
         self.lineEdit_5.clear()
         self.lineEdit_6.clear()
         self.lineEdit_3.clear()
         self.tableWidget.setRowCount(0)
         self.lineEdit_2.clear()
 
+    def set_kasir_data(self, username):
+        """Menerima dan menyimpan username kasir yang terdeteksi."""
+        self.loggedInUsername = username
+        # Update field GUI dengan username yang sebenarnya
+        self.lineEdit_4.setText(username)
+
+    def update_live_time(self):
+        """Memperbarui QDateTimeEdit dengan waktu sistem saat ini."""
+        # Ambil waktu saat ini
+        current_datetime = QDateTime.currentDateTime()
+        
+        # Set nilai baru ke widget
+        self.dateTimeEdit.setDateTime(current_datetime)
 import images_rc
 
 
