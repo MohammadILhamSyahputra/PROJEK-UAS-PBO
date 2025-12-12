@@ -552,6 +552,8 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         self.btn_save.clicked.connect(self.simpan_data_menu)
+        self.comboBox.currentIndexChanged.connect(self.update_kategori_state)
+        self.update_kategori_state(self.comboBox.currentIndex())
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -581,16 +583,22 @@ class Ui_MainWindow(object):
         self.btn_save.setText(_translate("MainWindow", "Simpan"))
 
     def simpan_data_menu(self):
-        nama = self.lineEdit.text()
-        harga_text = self.lineEdit_2.text()
-        stok_text = self.lineEdit_3.text()
+        # --- 1. Ambil Input dari LineEdit ---
+        nama = self.lineEdit.text().strip()
+        harga_text = self.lineEdit_2.text().strip()
+        stok_text = self.lineEdit_3.text().strip()
         
-        is_makanan_set = (self.comboBox_2.currentIndex() != 0)
-        is_minuman_set = (self.comboBox_3.currentIndex() != 0)
+        # --- 2. Ambil Status Dropdown ---
+        jenis_selected_index = self.comboBox.currentIndex() 
+        
+        # Cek apakah Kategori Makanan/Minuman sudah dipilih (bukan placeholder/index 0)
+        is_kategori_set = (self.comboBox_2.currentIndex() != 0)
+        is_penyajian_set = (self.comboBox_3.currentIndex() != 0)
 
         kategori_makanan = self.comboBox_2.currentText()
         jenis_penyajian = self.comboBox_3.currentText()
 
+        # --- 3. Validasi Dasar Input Teks ---
         if not all([nama, harga_text, stok_text]):
                 QtWidgets.QMessageBox.warning(self.centralwidget, "Input Gagal", "Nama, Harga, dan Stok harus diisi.")
                 return
@@ -602,7 +610,16 @@ class Ui_MainWindow(object):
                 QtWidgets.QMessageBox.warning(self.centralwidget, "Input Gagal", "Harga dan Stok harus berupa angka.")
                 return
         
-        if is_makanan_set and not is_minuman_set:
+        # --- 4. Logika Penentuan Jenis dan Validasi Kategori/Penyajian ---
+        
+        if jenis_selected_index == 0:  # Jenis: Makanan
+                
+                # Cek apakah dropdown Makanan (comboBox_2) sudah dipilih
+                if not is_kategori_set:
+                        QtWidgets.QMessageBox.warning(self.centralwidget, "Input Gagal", "Pilih kategori makanan.")
+                        return
+                
+                # Inisialisasi objek Makanan
                 objek_menu = Makanan(
                 id_menu=None, 
                 nama=nama, 
@@ -612,7 +629,14 @@ class Ui_MainWindow(object):
                 )
                 jenis_tersimpan = "Makanan"
                 
-        elif is_minuman_set and not is_makanan_set:
+        elif jenis_selected_index == 1:  # Jenis: Minuman
+                
+                # Cek apakah dropdown Minuman (comboBox_3) sudah dipilih
+                if not is_penyajian_set:
+                        QtWidgets.QMessageBox.warning(self.centralwidget, "Input Gagal", "Pilih jenis penyajian minuman.")
+                        return
+
+                # Inisialisasi objek Minuman
                 objek_menu = Minuman(
                 id_menu=None, 
                 nama=nama, 
@@ -623,27 +647,62 @@ class Ui_MainWindow(object):
                 jenis_tersimpan = "Minuman"
 
         else:
-                QtWidgets.QMessageBox.warning(
-                self.centralwidget, 
-                "Input Gagal", 
-                "Anda harus mengisi SATU Kategori (Makanan ATAU Minuman) saja."
-                )
+                # Jika comboBox Jenis tidak diatur (meskipun ini seharusnya diatur di setupUi)
+                QtWidgets.QMessageBox.warning(self.centralwidget, "Input Gagal", "Pilih Jenis Menu (Makanan atau Minuman).")
                 return
 
+        # --- 5. Penyimpanan Data ke Database ---
         try:
+                # Method insert_kategori() di Makanan/Minuman akan memanggil _insert_menu_data()
                 objek_menu.insert_kategori()
                 
+                # --- Pesan Sukses ---
                 QtWidgets.QMessageBox.information(self.centralwidget, "Sukses", 
                                                 f"Menu {nama} ({jenis_tersimpan}) berhasil ditambahkan!")
                 
+                # --- 6. Bersihkan Form ---
                 self.lineEdit.clear()
                 self.lineEdit_2.clear()
                 self.lineEdit_3.clear()
+                
+                # Reset dropdown ke pilihan default/pertama
+                self.comboBox.setCurrentIndex(0) 
                 self.comboBox_2.setCurrentIndex(0) 
                 self.comboBox_3.setCurrentIndex(0)
                 
+                # Panggil update state untuk mengaktifkan/nonaktifkan dropdown lagi (opsional)
+                self.update_kategori_state(self.comboBox.currentIndex()) 
+                
         except Exception as e:
                 QtWidgets.QMessageBox.critical(self.centralwidget, "Error", f"Gagal menyimpan data ke database: {e}")
+
+    def update_kategori_state(self, index):
+        """Mengendalikan status QComboBox Makanan dan Minuman berdasarkan pilihan Jenis."""
+
+        # Berdasarkan retranslateUi Anda:
+        # Index 0 = Makanan
+        # Index 1 = Minuman
+        
+        if index == 0:  # Makanan dipilih di 'Jenis'
+                # Aktifkan Makanan, Nonaktifkan Minuman
+                self.comboBox_2.setEnabled(True)  # Makanan
+                self.comboBox_3.setEnabled(False) # Minuman
+                # Reset Minuman ke placeholder
+                self.comboBox_3.setCurrentIndex(0) 
+
+        elif index == 1:  # Minuman dipilih di 'Jenis'
+                # Aktifkan Minuman, Nonaktifkan Makanan
+                self.comboBox_3.setEnabled(True)  # Minuman
+                self.comboBox_2.setEnabled(False) # Makanan
+                # Reset Makanan ke placeholder
+                self.comboBox_2.setCurrentIndex(0) 
+
+        else:
+                # Pilihan default/kosong
+                self.comboBox_2.setEnabled(False)
+                self.comboBox_3.setEnabled(False)
+                self.comboBox_2.setCurrentIndex(0)
+                self.comboBox_3.setCurrentIndex(0)
 
                 
 import images_rc

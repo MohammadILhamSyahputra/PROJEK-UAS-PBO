@@ -584,11 +584,14 @@ class Ui_MainWindow(object):
         self.btn_save_2.setText(_translate("MainWindow", "Update"))
 
     def init_combobox_placeholders(self):
-        self.comboBox_6.insertItem(0, "---pilih jenis makanan---")
+        # self.comboBox_6.insertItem(0, "---pilih jenis makanan---")
         self.comboBox_6.setCurrentIndex(0)
         
-        self.comboBox_5.insertItem(0, "----pilih jenis penyajian---")
+        # self.comboBox_5.insertItem(0, "----pilih jenis penyajian---")
         self.comboBox_5.setCurrentIndex(0)
+
+        self.comboBox_6.setEnabled(False)
+        self.comboBox_5.setEnabled(False)
         
     def load_data_by_id(self):
         id_menu = self.lineEdit_7.text().strip()
@@ -624,10 +627,16 @@ class Ui_MainWindow(object):
         if jenis == "Makanan":
                 self.comboBox_6.setCurrentText(objek_menu.kategori_makanan)
                 self.comboBox_5.setCurrentIndex(0)
+
+                self.comboBox_6.setEnabled(True)  # Makanan di-enable agar bisa diubah
+                self.comboBox_5.setEnabled(False)
         
         elif jenis == "Minuman":
                 self.comboBox_5.setCurrentText(objek_menu.jenis_penyajian)
                 self.comboBox_6.setCurrentIndex(0)
+
+                self.comboBox_5.setEnabled(True)  # Minuman di-enable agar bisa diubah
+                self.comboBox_6.setEnabled(False)
 
     def clear_form_fields(self):
         self.lineEdit_4.clear()

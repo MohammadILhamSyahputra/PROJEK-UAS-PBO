@@ -49,6 +49,16 @@ class Minuman(Menu):
         mydb.commit()
         print(mycursor.rowcount, f"Jenis penyajian ID {self.id_menu} berhasil diupdate.")
 
+    def select_minuman(self): # Mengambil data Minuman (self hanya dummy)
+        """Mengambil data semua Minuman dengan detail penyajian."""
+        sql = """
+        SELECT m.id, m.nama, m.harga, m.stok, b.jenis_penyajian
+        FROM menu m
+        INNER JOIN minuman b ON m.id = b.id
+        """
+        mycursor.execute(sql)
+        return mycursor.fetchall()
+
 
 
 
