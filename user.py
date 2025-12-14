@@ -15,7 +15,7 @@ class User:
         self.password = password
         self.level = level
 
-    def login(self, username, password):
+    def login(username, password):
         sql = "SELECT level FROM user WHERE username = %s AND password = %s"
         val = (username, password)
         mycursor.execute(sql, val)

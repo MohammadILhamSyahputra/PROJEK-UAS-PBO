@@ -446,6 +446,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.addWidget(self.comboBox)
         self.verticalLayout_6.addLayout(self.horizontalLayout_3)
         self.tableWidget = QtWidgets.QTableWidget(self.widget_2)
+        self.comboBox.addItem("Makanan")  # Index 0
+        self.comboBox.addItem("Minuman")
         self.tableWidget.setStyleSheet("QTableWidget {\n"
 "    background-color: white;\n"
 "    border: 1px solid #F5E7C6;\n"
@@ -535,6 +537,9 @@ class Ui_MainWindow(object):
         self.btn_riwayat_icon.toggled['bool'].connect(self.btn_riwayat_expanded.setChecked) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        self.comboBox.currentIndexChanged.connect(self.load_menu_data)
+        self.load_menu_data(self.comboBox.currentIndex())
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -547,61 +552,61 @@ class Ui_MainWindow(object):
         self.btn_logout_expanded.setText(_translate("MainWindow", "Logout"))
         self.label_6.setText(_translate("MainWindow", "Menu Makanan - Minum"))
 
-    def init_table(self):
-        table = self.tableWidget
-        table.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
-        table.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        table.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
-        table.horizontalHeader().setStretchLastSection(True)
-        table.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-        table.verticalHeader().setVisible(False)
-        table.setRowCount(0)
-        table.setColumnCount(0)
+#     def init_table(self):
+#         table = self.tableWidget
+#         table.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+#         table.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+#         table.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+#         table.horizontalHeader().setStretchLastSection(True)
+#         table.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+#         table.verticalHeader().setVisible(False)
+#         table.setRowCount(0)
+#         table.setColumnCount(0)
 
     def load_menu_data(self, index):
+        # Index 0 = Makanan, Index 1 = Minuman (berdasarkan retranslateUi)
+        
         table = self.tableWidget
-        table.clear()
         table.setRowCount(0)
-"""
+        
+        # Instance dummy untuk memanggil method instance
+        menu_finder_mkn = Makanan(id_menu=None, nama="", harga=0, stok=0, kategori="")
+        menu_finder_mnm = Minuman(id_menu=None, nama="", harga=0, stok=0, penyajian="")
+        
+        data = []
+        
         try:
                 if index == 0:  # Makanan
-                        headers = ["ID", "Nama", "Harga", "Stok", "Kategori"]
-                        data = Makanan.get_all()   # ⬅️ LEBIH OOP
-
+                        data = menu_finder_mkn.select_makanan()
+                        headers = ["ID", "Nama", "Harga", "Stok", "Kategori Makanan"]
+                
                 elif index == 1:  # Minuman
-                        headers = ["ID", "Nama", "Harga", "Stok", "Penyajian"]
-                        data = Minuman.get_all()
-
+                        data = menu_finder_mnm.select_minuman()
+                        headers = ["ID", "Nama", "Harga", "Stok", "Jenis Penyajian"]
+                
                 else:
-                return
+                        return # Tidak ada pilihan
 
-                        table.setColumnCount(len(headers))
-                        table.setHorizontalHeaderLabels(headers)
-                        table.setRowCount(len(data))
-
-                for row, row_data in enumerate(data):
-                        for col, value in enumerate(row_data):
-                                item = QtWidgets.QTableWidgetItem(str(value))
-                                item.setTextAlignment(QtCore.Qt.AlignCenter)
-                                table.setItem(row, col, item)
-
-                if len(data) == 0:
-                QtWidgets.QMessageBox.information(
-                        self.centralwidget,
-                        "Data Kosong",
-                        "Data menu tidak tersedia."
-                )
+                # Konfigurasi Tabel
+                table.setColumnCount(len(headers))
+                table.setHorizontalHeaderLabels(headers)
+                table.setRowCount(len(data))
+                
+                # Mengisi Data ke Tabel
+                for row_num, row_data in enumerate(data):
+                        for col_num, item in enumerate(row_data):
+                                table.setItem(row_num, col_num, QtWidgets.QTableWidgetItem(str(item)))
+                        
+                if not data:
+                        QtWidgets.QMessageBox.information(self.centralwidget, "Data Kosong", 
+                                                        f"Tidak ada data {self.comboBox.currentText()} yang ditemukan.")
 
         except Exception as e:
-                QtWidgets.QMessageBox.critical(
-                self.centralwidget,
-                "Error",
-                f"Gagal memuat data:\n{e}"
-                )
+                QtWidgets.QMessageBox.critical(self.centralwidget, "Database Error", 
+                                        f"Gagal memuat data: {e}")
 
 
 
-"""
 import images_rc
 
 
