@@ -143,3 +143,15 @@ class Transaksi:
         mycursor.execute(base_sql, tuple(params))
         result = mycursor.fetchone()
         return result[0] or 0
+    
+    def jumlah_transaksi(self):
+        sql = "SELECT COUNT(DISTINCT id_transaksi) FROM transaksi"
+        mycursor.execute(sql)
+        result = mycursor.fetchone()
+        return result[0] if result else 0
+    
+    def omset_bulan_ini(self):
+        sql = "SELECT SUM(harga_total) FROM transaksi WHERE MONTH(tanggal) = MONTH(CURRENT_DATE()) AND YEAR(tanggal) = YEAR(CURRENT_DATE())"
+        mycursor.execute(sql)
+        result = mycursor.fetchone()
+        return result[0] if result else 0

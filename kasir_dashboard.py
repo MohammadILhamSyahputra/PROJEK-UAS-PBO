@@ -11,6 +11,8 @@ from user import User
 from menu import Menu
 from transkasi import Transaksi 
 
+
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -651,14 +653,27 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.addWidget(self.widget_2)
         self.gridLayout.addWidget(self.main_menu, 0, 2, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
+        self.jumlah_menu()
+        self.jumlah_transaksi()
+        self.omset()
+        self.jumlah_user()
+        self.btn_menu_expanded_2.clicked.connect(self.goto_menu)
+        self.btn_transaksi_expanded.clicked.connect(self.goto_trx)
+        self.btn_riwayat_expanded.clicked.connect(self.goto_riwayatkasir)
+        self.btn_logout_expanded.clicked.connect(self.goto_logout)
+        self.btn_menu_icon.clicked.connect(self.goto_menu)
+        self.btn_transaksi_icon.clicked.connect(self.goto_trx)
+        self.btn_riwayat_icon.clicked.connect(self.goto_riwayatkasir)
+        self.btn_logout_icon.clicked.connect(self.goto_logout)
+
 
         self.retranslateUi(MainWindow)
         self.btn_expand.toggled['bool'].connect(self.icon_only_widget.setHidden) # type: ignore
         self.btn_expand.toggled['bool'].connect(self.icon_name_widget.setVisible) # type: ignore
-        self.btn_logout_expanded.clicked.connect(MainWindow.close) # type: ignore
+        #self.btn_logout_expanded.clicked.connect(MainWindow.close) # type: ignore
         self.btn_transaksi_expanded.toggled['bool'].connect(self.btn_transaksi_icon.setChecked) # type: ignore
         self.btn_transaksi_icon.toggled['bool'].connect(self.btn_transaksi_expanded.setChecked) # type: ignore
-        self.btn_logout_icon.clicked.connect(MainWindow.close) # type: ignore
+        #self.btn_logout_icon.clicked.connect(MainWindow.close) # type: ignore
         self.btn_dashboard_expanded.toggled['bool'].connect(self.btn_dashboard_icon.setChecked) # type: ignore
         self.btn_dashboard_icon.toggled['bool'].connect(self.btn_dashboard_expanded.setChecked) # type: ignore
         self.btn_menu_expanded_2.toggled['bool'].connect(self.btn_menu_icon.setChecked) # type: ignore
@@ -666,6 +681,49 @@ class Ui_MainWindow(object):
         self.btn_riwayat_expanded.toggled['bool'].connect(self.btn_riwayat_icon.setChecked) # type: ignore
         self.btn_riwayat_icon.toggled['bool'].connect(self.btn_riwayat_expanded.setChecked) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+#ganti halaman
+    def goto_menu(self):
+        from tampil_menu import Ui_MainWindow as MenuKasir
+        self.window = QtWidgets.QMainWindow()
+        self.ui = MenuKasir()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+    def goto_trx(self):
+        from form_proses_transaksi2 import Ui_MainWindow as ProsesTransaksi
+        self.window = QtWidgets.QMainWindow()
+        self.ui = ProsesTransaksi()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+    def goto_riwayatkasir(self):
+        from form_riwayat_kasir2 import Ui_MainWindow as RiwayatKasir
+        self.window = QtWidgets.QMainWindow()
+        self.ui = RiwayatKasir()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+    def goto_logout(self):
+        from form_login import Ui_MainWindow as formlogin
+        self.window = QtWidgets.QMainWindow()
+        self.ui = formlogin()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+
+    def jumlah_menu(self):
+        jmlmenu = Menu.jumlah_menu(self)
+        self.label_11.setText(str(jmlmenu))
+    def jumlah_transaksi(self):
+        jmltrx = Transaksi.jumlah_transaksi(self)
+        self.label_14.setText(str(jmltrx))
+    def omset(self):
+        omset_perbulan = Transaksi.omset_bulan_ini(self)
+        self.label_17.setText(str(omset_perbulan))
+    def jumlah_user(self):
+        jmluser = User.jumlah_user(self)
+        self.label_20.setText(str(jmluser))
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -679,13 +737,9 @@ class Ui_MainWindow(object):
         self.btn_logout_expanded.setText(_translate("MainWindow", "Logout"))
         self.label.setText(_translate("MainWindow", "Dashboard"))
         self.label_6.setText(_translate("MainWindow", "Halo, Kasir"))
-        self.label_11.setText(_translate("MainWindow", "0"))
         self.label_8.setText(_translate("MainWindow", "Jumlah Menu"))
-        self.label_17.setText(_translate("MainWindow", "0"))
         self.label_18.setText(_translate("MainWindow", "Pendapatan Bulan Ini"))
-        self.label_14.setText(_translate("MainWindow", "0"))
         self.label_15.setText(_translate("MainWindow", "Jumlah Transaksi"))
-        self.label_20.setText(_translate("MainWindow", "0"))
         self.label_21.setText(_translate("MainWindow", "Jumlah User"))
 import images_rc
 

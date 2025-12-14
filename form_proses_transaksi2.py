@@ -691,14 +691,22 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.addWidget(self.widget_2)
         self.gridLayout.addWidget(self.main_menu, 0, 2, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
+        self.btn_dashboard_expanded.clicked.connect(self.goto_dashboard)
+        self.btn_dashboard_icon.clicked.connect(self.goto_dashboard)
+        self.btn_menu_expanded_2.clicked.connect(self.goto_menu)
+        self.btn_menu_icon.clicked.connect(self.goto_menu)
+        self.btn_riwayat_expanded.clicked.connect(self.goto_riwayatkasir)
+        self.btn_riwayat_icon.clicked.connect(self.goto_riwayatkasir)
+        self.btn_logout_expanded.clicked.connect(self.goto_logout)
+        self.btn_logout_icon.clicked.connect(self.goto_logout)
 
         self.retranslateUi(MainWindow)
         self.btn_expand.toggled['bool'].connect(self.icon_only_widget.setHidden) # type: ignore
         self.btn_expand.toggled['bool'].connect(self.icon_name_widget.setVisible) # type: ignore
-        self.btn_logout_expanded.clicked.connect(MainWindow.close) # type: ignore
+        #self.btn_logout_expanded.clicked.connect(MainWindow.close) # type: ignore
         self.btn_transaksi_expanded.toggled['bool'].connect(self.btn_transaksi_icon.setChecked) # type: ignore
         self.btn_transaksi_icon.toggled['bool'].connect(self.btn_transaksi_expanded.setChecked) # type: ignore
-        self.btn_logout_icon.clicked.connect(MainWindow.close) # type: ignore
+        #self.btn_logout_icon.clicked.connect(MainWindow.close) # type: ignore
         self.btn_dashboard_expanded.toggled['bool'].connect(self.btn_dashboard_icon.setChecked) # type: ignore
         self.btn_dashboard_icon.toggled['bool'].connect(self.btn_dashboard_expanded.setChecked) # type: ignore
         self.btn_menu_expanded_2.toggled['bool'].connect(self.btn_menu_icon.setChecked) # type: ignore
@@ -742,6 +750,38 @@ class Ui_MainWindow(object):
         # Asumsi: LineEdit Kasir adalah self.lineEdit_4 (sesuai permintaan sebelumnya)
         self.lineEdit_4.setReadOnly(True)
         self.lineEdit_4.setText(self.loggedInUsername)
+
+    #ganti halaman
+    def goto_menu(self):
+        from tampil_menu import Ui_MainWindow as KasirMenu
+        self.window = QtWidgets.QMainWindow()
+        self.ui = KasirMenu()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+    def goto_dashboard(self):
+        from kasir_dashboard import Ui_MainWindow as KasirDashboard
+        self.window = QtWidgets.QMainWindow()
+        self.ui = KasirDashboard()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+
+    def goto_riwayatkasir(self):
+        from form_riwayat_kasir2 import Ui_MainWindow as RiwayatKasir
+        self.window = QtWidgets.QMainWindow()
+        self.ui = RiwayatKasir()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+        
+    def goto_logout(self):
+        from form_login import Ui_MainWindow as formlogin
+        self.window = QtWidgets.QMainWindow()
+        self.ui = formlogin()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

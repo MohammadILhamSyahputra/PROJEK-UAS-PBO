@@ -108,4 +108,10 @@ class Menu:
         mycursor.execute(sql, (menu_id,))
         result = mycursor.fetchone()
         return result[0] if result else 0
+    
+    def jumlah_menu(self):
+        sql = "SELECT COUNT(*) FROM menu"
+        mycursor.execute(sql)
+        result = mycursor.fetchone()
+        return result[0] if result else 0
 

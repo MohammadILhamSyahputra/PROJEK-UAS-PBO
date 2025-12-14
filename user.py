@@ -68,3 +68,8 @@ class User:
         val = (f"%{keyword}%", f"%{keyword}%", f"%{keyword}%")
         mycursor.execute(sql, val)
         return mycursor.fetchall()
+    def jumlah_user(self):
+        sql = "SELECT COUNT(*) FROM user"
+        mycursor.execute(sql)
+        result = mycursor.fetchone()
+        return result[0] if result else 0

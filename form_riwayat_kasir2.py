@@ -582,6 +582,14 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.verticalLayout_7)
         self.gridLayout.addWidget(self.icon_only_widget, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
+        self.btn_dashboard_expanded.clicked.connect(self.goto_dashboard)
+        self.btn_transaksi_expanded.clicked.connect(self.goto_trx)
+        self.btn_menu_expanded.clicked.connect(self.goto_tampilmenu)    
+        self.btn_logout_expanded.clicked.connect(self.goto_logout)
+        self.btn_dashboard_icon.clicked.connect(self.goto_dashboard)
+        self.btn_transaksi_icon.clicked.connect(self.goto_trx)
+        self.btn_menu_icon.clicked.connect(self.goto_tampilmenu)
+        self.btn_logout_icon.clicked.connect(self.goto_logout)
 
         self.retranslateUi(MainWindow)
         self.btn_expand.toggled['bool'].connect(self.icon_only_widget.setHidden) # type: ignore
@@ -623,6 +631,39 @@ class Ui_MainWindow(object):
         # Panggil sekali di awal untuk menampilkan riwayat hari ini
         self.set_default_date_range()
         self.display_riwayat()
+
+    #ganti halaman    
+    def goto_dashboard(self):
+        from kasir_dashboard import Ui_MainWindow as KasirDashboard
+        self.window = QtWidgets.QMainWindow()
+        self.ui = KasirDashboard()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+
+    def goto_trx(self):
+        from form_proses_transaksi2 import Ui_MainWindow as ProsesTransaksi
+        self.window = QtWidgets.QMainWindow()
+        self.ui = ProsesTransaksi()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+
+    def goto_tampilmenu(self):
+        from tampil_menu import Ui_MainWindow as MenuKasir
+        self.window = QtWidgets.QMainWindow()
+        self.ui = MenuKasir()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+        
+    def goto_logout(self):
+        from form_login import Ui_MainWindow as formlogin
+        self.window = QtWidgets.QMainWindow()
+        self.ui = formlogin()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
