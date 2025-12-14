@@ -9,6 +9,7 @@
 
 from user import User
 from menu import Menu
+from sesi import sesi
 from transkasi import Transaksi 
 
 
@@ -666,6 +667,9 @@ class Ui_MainWindow(object):
         self.btn_riwayat_icon.clicked.connect(self.goto_riwayatkasir)
         self.btn_logout_icon.clicked.connect(self.goto_logout)
 
+        # self.loggedInUsername = "GUEST"
+        self.update_welcome_label()
+
 
         self.retranslateUi(MainWindow)
         self.btn_expand.toggled['bool'].connect(self.icon_only_widget.setHidden) # type: ignore
@@ -682,7 +686,44 @@ class Ui_MainWindow(object):
         self.btn_riwayat_icon.toggled['bool'].connect(self.btn_riwayat_expanded.setChecked) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-#ganti halaman
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.label_3.setText(_translate("MainWindow", "NIBA"))
+        self.label_5.setText(_translate("MainWindow", "RESTO"))
+        self.btn_dashboard_expanded.setText(_translate("MainWindow", "Dashboard"))
+        self.btn_transaksi_expanded.setText(_translate("MainWindow", "Transaksi"))
+        self.btn_menu_expanded_2.setText(_translate("MainWindow", "Menu"))
+        self.btn_riwayat_expanded.setText(_translate("MainWindow", "Riwayat"))
+        self.btn_logout_expanded.setText(_translate("MainWindow", "Logout"))
+        self.label.setText(_translate("MainWindow", "Dashboard"))
+        self.label_6.setText(_translate("MainWindow", "Halo, Kasir"))
+        self.label_8.setText(_translate("MainWindow", "Jumlah Menu"))
+        self.label_18.setText(_translate("MainWindow", "Pendapatan Bulan Ini"))
+        self.label_15.setText(_translate("MainWindow", "Jumlah Transaksi"))
+        self.label_21.setText(_translate("MainWindow", "Jumlah User"))
+
+    
+    # def setLoggedInUsername(self, username):
+    #     """Menerima username dari Form Login."""
+    #     self.loggedInUsername = username
+    #     self.update_welcome_label()
+        
+    # --- TAMBAHKAN UPDATER LABEL ---
+    def update_welcome_label(self):
+        # Asumsi label sapaan Anda adalah self.label_6
+        username = sesi.LOGGED_IN_USERNAME
+        _translate = QtCore.QCoreApplication.translate
+
+        self.label_6.setText(_translate("MainWindow", f"Halo, {username}"))
+        # if self.loggedInUsername.upper() == "GUEST":
+        #      # Jika belum diset, gunakan default
+        #      self.label_6.setText(_translate("MainWindow", "Halo, Kasir")) 
+        # else:
+        #      # Set dengan username yang sebenarnya
+        #      self.label_6.setText(_translate("MainWindow", f"Halo, {username}"))
+
+    #ganti halaman
     def goto_menu(self):
         from tampil_menu import Ui_MainWindow as MenuKasir
         self.window = QtWidgets.QMainWindow()
@@ -695,12 +736,16 @@ class Ui_MainWindow(object):
         self.window = QtWidgets.QMainWindow()
         self.ui = ProsesTransaksi()
         self.ui.setupUi(self.window)
+        # self.ui.set_kasir_data(self.loggedInUsername)
+        self.ui.set_kasir_data(sesi.LOGGED_IN_USERNAME)
         self.window.show()
         self.centralwidget.window().close()
+
     def goto_riwayatkasir(self):
         from form_riwayat_kasir2 import Ui_MainWindow as RiwayatKasir
         self.window = QtWidgets.QMainWindow()
         self.ui = RiwayatKasir()
+        # self.ui.setLoggedInUsername(sesi.LOGGED_IN_USERNAME)
         self.ui.setupUi(self.window)
         self.window.show()
         self.centralwidget.window().close()
@@ -725,22 +770,6 @@ class Ui_MainWindow(object):
         jmluser = User.jumlah_user(self)
         self.label_20.setText(str(jmluser))
 
-    def retranslateUi(self, MainWindow):
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label_3.setText(_translate("MainWindow", "NIBA"))
-        self.label_5.setText(_translate("MainWindow", "RESTO"))
-        self.btn_dashboard_expanded.setText(_translate("MainWindow", "Dashboard"))
-        self.btn_transaksi_expanded.setText(_translate("MainWindow", "Transaksi"))
-        self.btn_menu_expanded_2.setText(_translate("MainWindow", "Menu"))
-        self.btn_riwayat_expanded.setText(_translate("MainWindow", "Riwayat"))
-        self.btn_logout_expanded.setText(_translate("MainWindow", "Logout"))
-        self.label.setText(_translate("MainWindow", "Dashboard"))
-        self.label_6.setText(_translate("MainWindow", "Halo, Kasir"))
-        self.label_8.setText(_translate("MainWindow", "Jumlah Menu"))
-        self.label_18.setText(_translate("MainWindow", "Pendapatan Bulan Ini"))
-        self.label_15.setText(_translate("MainWindow", "Jumlah Transaksi"))
-        self.label_21.setText(_translate("MainWindow", "Jumlah User"))
 import images_rc
 
 

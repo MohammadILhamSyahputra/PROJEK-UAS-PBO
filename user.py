@@ -15,14 +15,29 @@ class User:
         self.password = password
         self.level = level
 
-    def login(username, password):
+    def login(self, username, password):
         sql = "SELECT level FROM user WHERE username = %s AND password = %s"
         val = (username, password)
-        mycursor.execute(sql, val)
-        result = mycursor.fetchone()
-        if result:
-            return str(result[0])
-        else:
+        # mycursor.execute(sql, val)
+        # result = mycursor.fetchone()
+        # if result:
+        #     return str(result[0]), username
+        # else:
+        #     return "Gagal", None
+
+        try:
+            mycursor.execute(sql, val)
+            result = mycursor.fetchone()
+            
+            if result:
+                # Jika baris ditemukan, berarti login berhasil
+                return str(result[0]) 
+            else:
+                # Jika result kosong, kembalikan "Gagal"
+                return "Gagal" 
+        except Exception as e:
+            # Jika ada error DB, ini juga akan gagal login
+            print(f"Database Error saat Login: {e}") 
             return "Gagal"
 
     def insert(self):

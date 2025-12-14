@@ -744,12 +744,13 @@ class Ui_MainWindow(object):
         # self.lineEdit_4.setText(self.loggedInUsername)
         # self.lineEdit_4.setReadOnly(True)
 
-        self.loggedInUsername = "Guest" # Nilai default
-        self.current_kode_transaksi = None
+        # self.loggedInUsername = "Guest" # Nilai default
+        # self.current_kode_transaksi = None
         
-        # Asumsi: LineEdit Kasir adalah self.lineEdit_4 (sesuai permintaan sebelumnya)
+        # # Asumsi: LineEdit Kasir adalah self.lineEdit_4 (sesuai permintaan sebelumnya)
         self.lineEdit_4.setReadOnly(True)
-        self.lineEdit_4.setText(self.loggedInUsername)
+        # self.lineEdit_4.setText(self.loggedInUsername)
+        self.current_kode_transaksi = None
 
     #ganti halaman
     def goto_menu(self):
@@ -782,6 +783,10 @@ class Ui_MainWindow(object):
         self.ui.setupUi(self.window)
         self.window.show()
         self.centralwidget.window().close()
+    def set_kasir_data(self, username):
+        
+        self.loggedInUsername = username
+        self.lineEdit_4.setText(username)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -965,9 +970,7 @@ class Ui_MainWindow(object):
         self.lineEdit_2.clear()
 
     def set_kasir_data(self, username):
-        """Menerima dan menyimpan username kasir yang terdeteksi."""
         self.loggedInUsername = username
-        # Update field GUI dengan username yang sebenarnya
         self.lineEdit_4.setText(username)
 
     def update_live_time(self):

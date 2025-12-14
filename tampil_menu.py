@@ -9,6 +9,7 @@
 
 from makanan import Makanan
 from minuman import Minuman
+from sesi import sesi
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -590,6 +591,10 @@ class Ui_MainWindow(object):
 
         self.comboBox.currentIndexChanged.connect(self.load_menu_data)
         self.load_menu_data(self.comboBox.currentIndex())
+        self.btn_transaksi_expanded.clicked.connect(self.goto_trx)
+        self.btn_transaksi_icon.clicked.connect(self.goto_trx)
+        self.btn_dashboard_expanded.clicked.connect(self.goto_dashboard)
+        self.btn_dashboard_icon.clicked.connect(self.goto_dashboard)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -619,6 +624,7 @@ class Ui_MainWindow(object):
         self.window = QtWidgets.QMainWindow()
         self.ui = ProsesTransaksi()
         self.ui.setupUi(self.window)
+        self.ui.set_kasir_data(sesi.LOGGED_IN_USERNAME)
         self.window.show()
         self.centralwidget.window().close()
 

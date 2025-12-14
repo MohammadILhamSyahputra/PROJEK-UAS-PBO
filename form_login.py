@@ -10,6 +10,7 @@
 from user import User
 import admin_dashboard as da
 import kasir_dashboard as dk
+from sesi import sesi
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -125,16 +126,21 @@ class Ui_MainWindow(object):
         username = self.lineEdit.text()
         password = self.lineEdit_2.text()
 
-        level = User.login(username, password)
+        user_checker = User()
+
+        level = user_checker.login(username, password)
 
         if level == "Admin":
-            self.openAdmin()
+            sesi.LOGGED_IN_USERNAME = username
+            self.openAdmin(username)
         elif level == "Kasir":
-            self.openKasir()
+            sesi.LOGGED_IN_USERNAME = username
+            self.openKasir(username)
         else:
-            QtWidgets.QMessageBox.warning(self, "Login Gagal", "Username atau Password salah!")
+            sesi.LOGGED_IN_USERNAME = "GUEST"
+            QtWidgets.QMessageBox.warning(self.MainWindow, "Login Gagal", "Username atau Password salah!")
 
-    def openAdmin(self):
+    def openAdmin(self, loggedInUsername):
         # self.child = QtWidgets.QMainWindow()
         # self.ui = AdminDashboard()
         # self.ui.setupUi(self.child)
@@ -147,13 +153,12 @@ class Ui_MainWindow(object):
         self.window.show()
         self.centralwidget.window().close()
 
-    def openKasir(self):
+    def openKasir(self, loggedInUsername):
         # self.child = QtWidgets.QMainWindow()
         # self.ui = KasirDashboard()
         # self.ui.setupUi(self.child)
         # self.child.show()
         # self.hide()
-
         self.window = QtWidgets.QMainWindow()
         self.ui = dk.Ui_MainWindow()
         self.ui.setupUi(self.window)
