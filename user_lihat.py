@@ -515,6 +515,16 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.main_menu, 0, 2, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.selectDataUser()
+        self.btn_dashboard_expanded.clicked.connect(self.goto_dashboard)
+        self.btn_user_expanded.clicked.connect(self.goto_user)
+        self.btn_menu_expanded.clicked.connect(self.goto_menu)
+        self.btn_riwayat_expanded.clicked.connect(self.goto_riwayatadmin)
+        self.btn_logout_expanded.clicked.connect(self.goto_logout)
+        self.btn_dashboard_icon.clicked.connect(self.goto_dashboard)
+        self.btn_user_icon.clicked.connect(self.goto_user)
+        self.btn_menu_icon.clicked.connect(self.goto_menu)
+        self.btn_riwayat_icon.clicked.connect(self.goto_riwayatadmin)
+        self.btn_logout_icon.clicked.connect(self.goto_logout)
 
         self.retranslateUi(MainWindow)
         self.btn_expand.toggled['bool'].connect(self.icon_only_widget.setHidden) # type: ignore
@@ -531,6 +541,42 @@ class Ui_MainWindow(object):
         self.btn_riwayat_icon.toggled['bool'].connect(self.btn_riwayat_expanded.setChecked) # type: ignore
         self.btn_riwayat_expanded.toggled['bool'].connect(self.btn_riwayat_icon.setChecked) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def goto_dashboard(self):
+        from admin_dashboard import Ui_MainWindow as DashboardAdmin
+        self.window = QtWidgets.QMainWindow()
+        self.ui = DashboardAdmin()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+    def goto_menu(self):
+        from QA_menu import Ui_MainWindow as MenuAdmin
+        self.window = QtWidgets.QMainWindow()
+        self.ui = MenuAdmin()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+    def goto_user(self):
+        from QA_user import Ui_MainWindow as KelolaUser
+        self.window = QtWidgets.QMainWindow()
+        self.ui = KelolaUser()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+    def goto_riwayatadmin(self):
+        from form_riwayat_admin import Ui_MainWindow as RiwayatAdmin
+        self.window = QtWidgets.QMainWindow()
+        self.ui = RiwayatAdmin()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+    def goto_logout(self):
+        from form_login import Ui_MainWindow as formlogin
+        self.window = QtWidgets.QMainWindow()
+        self.ui = formlogin()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
 
     def selectDataUser(self):
         data = User.select_all(self)

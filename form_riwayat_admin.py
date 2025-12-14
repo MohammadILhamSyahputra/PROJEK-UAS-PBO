@@ -581,16 +581,25 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.addLayout(self.verticalLayout_7)
         self.gridLayout.addWidget(self.icon_only_widget, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
+        self.btn_dashboard_expanded.clicked.connect(self.goto_dashboard)
+        self.btn_user_expanded.clicked.connect(self.goto_user)
+        self.btn_menu_expanded.clicked.connect(self.goto_menu)
+        self.btn_logout_expanded.clicked.connect(self.goto_logout)
+        self.btn_dashboard_icon.clicked.connect(self.goto_dashboard)
+        self.btn_user_icon.clicked.connect(self.goto_user)
+        self.btn_menu_icon.clicked.connect(self.goto_menu)
+        self.btn_logout_icon.clicked.connect(self.goto_logout)
+
 
         self.retranslateUi(MainWindow)
         self.btn_expand.toggled['bool'].connect(self.icon_only_widget.setHidden) # type: ignore
         self.btn_expand.toggled['bool'].connect(self.icon_name_widget.setVisible) # type: ignore
-        self.btn_logout_expanded.clicked.connect(MainWindow.close) # type: ignore
+        #self.btn_logout_expanded.clicked.connect(MainWindow.close) # type: ignore
         self.btn_riwayat_expanded.toggled['bool'].connect(self.btn_riwayat_icon.setChecked) # type: ignore
         self.btn_menu_expanded.toggled['bool'].connect(self.btn_menu_icon.setChecked) # type: ignore
         self.btn_riwayat_icon.toggled['bool'].connect(self.btn_riwayat_expanded.setChecked) # type: ignore
         self.btn_menu_icon.toggled['bool'].connect(self.btn_menu_expanded.setChecked) # type: ignore
-        self.btn_logout_icon.clicked.connect(MainWindow.close) # type: ignore
+        #self.btn_logout_icon.clicked.connect(MainWindow.close) # type: ignore
         self.btn_dashboard_icon.toggled['bool'].connect(self.btn_dashboard_expanded.setChecked) # type: ignore
         self.btn_dashboard_expanded.toggled['bool'].connect(self.btn_dashboard_icon.setChecked) # type: ignore
         self.btn_user_icon.toggled['bool'].connect(self.btn_user_expanded.setChecked) # type: ignore
@@ -609,6 +618,36 @@ class Ui_MainWindow(object):
         self.set_kasir_dropdown() 
         self.set_default_date_range() 
         self.display_riwayat()
+
+    def goto_dashboard(self):
+        from kasir_dashboard import Ui_MainWindow as DashboardAdmin
+        self.window = QtWidgets.QMainWindow()
+        self.ui = DashboardAdmin()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+    def goto_user(self):
+        from QA_user import Ui_MainWindow as KelolaUser
+        self.window = QtWidgets.QMainWindow()
+        self.ui = KelolaUser()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+    def goto_menu(self):
+        from QA_menu import Ui_MainWindow as KelolaMenu
+        self.window = QtWidgets.QMainWindow()
+        self.ui = KelolaMenu()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
+    
+    def goto_logout(self):
+        from form_login import Ui_MainWindow as formlogin
+        self.window = QtWidgets.QMainWindow()
+        self.ui = formlogin()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        self.centralwidget.window().close()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
