@@ -838,11 +838,11 @@ class Ui_MainWindow(object):
                         return
 
                 table.setRowCount(len(results))
-                table.setColumnCount(4) 
-                table.setHorizontalHeaderLabels(["ID", "Nama", "Harga", "Stok"])
+                table.setColumnCount(3) 
+                table.setHorizontalHeaderLabels(["ID", "Nama", "Harga"])
 
                 for row_num, row_data in enumerate(results):
-                        for col_num, data in enumerate(row_data):
+                        for col_num, data in enumerate(row_data[:3]):
                                 table.setItem(row_num, col_num, QtWidgets.QTableWidgetItem(str(data)))
 
         except Exception as e:
@@ -869,8 +869,25 @@ class Ui_MainWindow(object):
                 return
 
         id_menu = int(self.selected_menu_id)
+        print(f"DEBUG ID Menu yang dikirim: {id_menu}")
         username_kasir = self.loggedInUsername
         menu_finder = Menu(id_menu=None, nama="", harga=0, stok=0) 
+
+        try:
+                current_stok = menu_finder.get_stok_by_id(id_menu)
+                
+                if current_stok == 0:
+                        QtWidgets.QMessageBox.warning(self.centralwidget, "Stok", "Item ini **habis** (stok 0).")
+                        return
+                
+                if qty > current_stok:
+                        QtWidgets.QMessageBox.warning(self.centralwidget, "Stok Tidak Cukup", 
+                                                        f"Stok tidak cukup. Hanya tersisa **{current_stok}**.")
+                        return
+
+        except Exception as e:
+                QtWidgets.QMessageBox.critical(self.centralwidget, "DB Error", f"Gagal memeriksa stok: {e}")
+                return
         
         tr_instance = Transaksi() 
         
