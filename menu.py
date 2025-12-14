@@ -99,7 +99,7 @@ class Menu:
             return None
         
     def search_menu_by_name(self, nama_keyword): 
-        sql = "SELECT id, nama, harga, stok FROM menu WHERE nama LIKE %s"
+        sql = "SELECT id, nama, harga FROM menu WHERE nama LIKE %s"
         mycursor.execute(sql, ('%' + nama_keyword + '%',))
         return mycursor.fetchall()
 
@@ -114,4 +114,22 @@ class Menu:
         mycursor.execute(sql)
         result = mycursor.fetchone()
         return result[0] if result else 0
+    
+    def get_stok_by_id(self, id_menu):
+        current_stok = 0
+        
+        sql = "SELECT stok FROM menu WHERE id= %s"
+        
+        try:
+            mycursor.execute(sql, (id_menu,))
+            result = mycursor.fetchone()
+            
+            if result:
+                current_stok = result[0] 
+            
+            return current_stok
+            
+        except Exception as e:
+            print(f"!!! KRITIS: GAGAL KONEKSI/QUERY STOK (id: {id_menu}). Error: {e}") 
+            return 0
 
