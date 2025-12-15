@@ -620,7 +620,7 @@ class Ui_MainWindow(object):
         self.display_riwayat()
 
     def goto_dashboard(self):
-        from kasir_dashboard import Ui_MainWindow as DashboardAdmin
+        from admin_dashboard import Ui_MainWindow as DashboardAdmin
         self.window = QtWidgets.QMainWindow()
         self.ui = DashboardAdmin()
         self.ui.setupUi(self.window)

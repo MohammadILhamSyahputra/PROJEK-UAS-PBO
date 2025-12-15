@@ -568,6 +568,13 @@ class Ui_MainWindow(object):
         level_baru = self.comboBox.currentText()
         user_baru = User(username_baru,nama_baru, password_baru, level_baru) 
         user_baru.insert()
+        QtWidgets.QMessageBox.information(None, "Success", "Data user berhasil disimpan!")
+
+        self.lineEdit.clear()
+        self.lineEdit_2.clear()
+        self.lineEdit_3.clear()
+        self.comboBox.setCurrentIndex(0)
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

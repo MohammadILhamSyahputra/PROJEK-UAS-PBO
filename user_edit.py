@@ -581,6 +581,12 @@ class Ui_MainWindow(object):
 
         QtWidgets.QMessageBox.information(None, "Success", "Data user berhasil diupdate!")
 
+        self.lineEdit_7.clear()
+        self.lineEdit_4.clear()
+        self.lineEdit_6.clear()
+        self.comboBox_4.setCurrentIndex(0)
+
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

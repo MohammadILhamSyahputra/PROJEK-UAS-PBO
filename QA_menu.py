@@ -541,7 +541,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def goto_dashboard(self):
-        from kasir_dashboard import Ui_MainWindow as DashboardAdmin
+        from admin_dashboard import Ui_MainWindow as DashboardAdmin
         self.window = QtWidgets.QMainWindow()
         self.ui = DashboardAdmin()
         self.ui.setupUi(self.window)
@@ -574,21 +574,25 @@ class Ui_MainWindow(object):
         self.ui = MenuCreate()
         self.ui.setupUi(self.window)
         self.window.show()
+        self.centralwidget.window().close()
     def open_edit_menu(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = MenuEdit()
         self.ui.setupUi(self.window)
         self.window.show()
+        self.centralwidget.window().close()
     def open_hapus_menu(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = MenuDelete()
         self.ui.setupUi(self.window)
         self.window.show()
+        self.centralwidget.window().close()
     def open_lihat_menu(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = MenuLihat()
         self.ui.setupUi(self.window)
         self.window.show()
+        self.centralwidget.window().close()
 
 
     def retranslateUi(self, MainWindow):
